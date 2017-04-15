@@ -5,6 +5,25 @@
     <div class="trip">
       <h2>{{ tripsShow.trip.name }}</h2>
       <h3>{{ tripsShow.trip.description }}</h3>
+
+<h3>Dates:</h3>
+      <h4>{{ trip.date_one | date: 'longDate' }}</h4>
+
+
+      <h3>{{ tripsShow.trip.date_one }}</h3>
+      <h3>{{ tripsShow.trip.date_two }}</h3>
+      <h3>{{ tripsShow.trip.date_three }}</h3>
+
+
+      <div class="col-md-6">
+        <div class="airports">
+          <h5>Aiports:</h5>
+          <ul>
+            <li ng-repeat="airports in tripsShow.trip.airports">{{ airports.name }}</li>
+          </ul>
+        </div>
+      </div>
+
       <p>Created by: <strong>{{ tripsShow.trip.user.username }}</strong></p>
 
       <button ng-click="tripsShow.toggleAttending()" ng-if="!tripsShow.isAttending() && main.isAuthenticated()">Attend</button>
