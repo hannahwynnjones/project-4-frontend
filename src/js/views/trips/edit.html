@@ -1,0 +1,42 @@
+<h1>Edit page</h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <form ng-submit="tripsEdit.update()">
+
+<!-- SLIDE 1 -->
+
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" ng-model="tripsEdit.trip.name">
+
+      <label for="description">Description</label>
+      <input type="text" id="description" name="description" ng-model="tripsEdit.trip.description">
+
+      <label for="date">Departure date</label>
+      <input type="date" id="date1" name="date" ng-model="tripsEdit.trip.date">
+      <label for="airport">Home Airport</label>
+      <input type="text" id="airport1" name="airport" ng-model="tripsEdit.trip.airport">
+
+      <label for="date">Date two</label>
+      <input type="date" id="date2" name="date" ng-model="tripsEdit.trip.date">
+
+      <label for="airport">Airport2</label>
+      <input type="text" id="airport2" name="airport" ng-model="tripsEdit.trip.airport">
+
+      <label for="date">Date three</label>
+      <input type="date" id="date3" name="date" ng-model="tripsEdit.trip.date">
+
+      <label for="airport">Airport3</label>
+      <input type="text" id="airport3" name="airport" ng-model="tripsEdit.trip.airport">
+
+      <label for="date">Date four</label>
+      <input type="date" id="date4" name="date" ng-model="tripsEdit.trip.date">
+
+      <label ng-repeat="user in tripsEdit.users">
+      <input type="checkbox" name="attendees" checklist-model="tripsEdit.trip.attendee_ids" checklist-value="user.id">{{ user.username }}
+      </label>
+
+      <button>Update</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<h1>New page</h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <form ng-submit="tripsNew.create()">
+
+<!-- SLIDE 1 -->
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" ng-model="tripsNew.trip.name">
+      </div>
+
+      <div>
+        <label for="description">Desription</label>
+        <input type="text" id="description" name="description" ng-model="tripsNew.trip.description">
+      </div>
+
+      <div>
+        <label for="date1">Departure date</label>
+        <input type="date" id="date1" name="date1" ng-model="tripsNew.trip.date1">
+      </div>
+
+      <div>
+        <label for="airport">Home Airport</label>
+        <input type="text" id="airport1" name="airport" ng-model="tripsNew.trip.airport_ids">
+      </div>
+
+<!-- SLIDE 2 -->
+
+      <div>
+        <label>2nd Airport</label>
+        <label ng-repeat="airport in tripsNew.airports">
+          <input type="checkbox" name="airports" checklist-model="tripsNew.trip.airport_ids" checklist-value="airport.id">{{ airport.name }}
+        </label>
+      </div>
+
+<!-- SLIDE 3 -->
+
+      <div>
+        <label for="date2">Date two</label>
+        <input type="date" id="date2" name="date2" ng-model="tripsNew.trip.date2">
+      </div>
+
+<!-- SLIDE 4 -->
+      <div>
+        <label>3rd Airport</label>
+        <label ng-repeat="airport in tripsNew.airports">
+          <input type="checkbox" name="airports" checklist-model="tripsNew.trip.airport_ids" checklist-value="airport.id">{{ airport.name }}
+        </label>
+      </div>
+
+<!-- SLIDE 5 -->
+      <div>
+        <label for="date">Date three</label>
+        <input type="date" id="date3" name="date" ng-model="tripsNew.trip.date">
+      </div>
+
+<!-- SLIDE 6 -->
+      <div>
+        <label>Attendees</label>
+        <label ng-repeat="user in tripsNew.users">
+          <input type="checkbox" name="attendees" checklist-model="tripsNew.trip.attendee_ids" checklist-value="user.id">{{ user.username }}
+        </label>
+      </div>
+
+      <button>Create</button>
+    </form>
+  </div>
+</div>
+
+{{ tripsNew.trip }}
