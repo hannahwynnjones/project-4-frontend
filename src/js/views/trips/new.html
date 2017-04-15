@@ -17,7 +17,7 @@
 
       <div>
         <label for="date1">Departure date</label>
-        <input type="date" id="date1" name="date1" ng-model="tripsNew.trip.date1">
+        <input type="date" id="date1" name="date_one" ng-model="tripsNew.trip.date_one">
       </div>
 
       <div>
@@ -30,7 +30,7 @@
       <div>
         <label>2nd Airport</label>
         <label ng-repeat="airport in tripsNew.airports">
-          <input type="checkbox" name="airports" checklist-model="tripsNew.trip.airport_ids" checklist-value="airport.id">{{ airport.name }}
+          <input type="checkbox" name="airports" checklist-model="tripsNew.trip.airport_ids" checklist-value="airport.id">{{ airport }}
         </label>
       </div>
 
@@ -38,7 +38,7 @@
 
       <div>
         <label for="date2">Date two</label>
-        <input type="date" id="date2" name="date2" ng-model="tripsNew.trip.date2">
+        <input type="date" id="date2" name="date_two" ng-model="tripsNew.trip.date_two">
       </div>
 
 <!-- SLIDE 4 -->
@@ -52,7 +52,7 @@
 <!-- SLIDE 5 -->
       <div>
         <label for="date">Date three</label>
-        <input type="date" id="date3" name="date" ng-model="tripsNew.trip.date">
+        <input type="date" id="date3" name="date_three" ng-model="tripsNew.trip.date_three">
       </div>
 
 <!-- SLIDE 6 -->

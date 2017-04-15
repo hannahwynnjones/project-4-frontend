@@ -5,37 +5,46 @@
     <form ng-submit="tripsEdit.update()">
 
 <!-- SLIDE 1 -->
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" ng-model="tripsEdit.trip.name">
+      </div>
+      <div>
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" ng-model="tripsEdit.trip.description">
+      </div>
+      <div>
 
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" ng-model="tripsEdit.trip.name">
+        <label for="date">Departure date</label>
+        <input type="date" id="date1" name="date_one" ng-model="tripsEdit.trip.date_one">
+      </div>
+      <div>
+        <label for="airport">Home Airport</label>
+        <input type="text" id="airport1" name="airport" ng-model="tripsEdit.trip.airport">
 
-      <label for="description">Description</label>
-      <input type="text" id="description" name="description" ng-model="tripsEdit.trip.description">
+      </div>
+      <div>
+        <label for="date">Date two</label>
+        <input type="date" id="date2" name="date_two" ng-model="tripsEdit.trip.date_two">
+      </div>
+      <div>
+        <label for="airport">Airport2</label>
+        <input type="text" id="airport2" name="airport" ng-model="tripsEdit.trip.airport">
+      </div>
+      <div>
+        <label for="date">Date three</label>
+        <input type="date" id="date3" name="date_three" ng-model="tripsEdit.trip.date_three">
+      </div>
+      <div>
+        <label for="airport">Airport3</label>
+        <input type="text" id="airport3" name="airport" ng-model="tripsEdit.trip.airport">
+      </div>
 
-      <label for="date">Departure date</label>
-      <input type="date" id="date1" name="date" ng-model="tripsEdit.trip.date">
-      <label for="airport">Home Airport</label>
-      <input type="text" id="airport1" name="airport" ng-model="tripsEdit.trip.airport">
-
-      <label for="date">Date two</label>
-      <input type="date" id="date2" name="date" ng-model="tripsEdit.trip.date">
-
-      <label for="airport">Airport2</label>
-      <input type="text" id="airport2" name="airport" ng-model="tripsEdit.trip.airport">
-
-      <label for="date">Date three</label>
-      <input type="date" id="date3" name="date" ng-model="tripsEdit.trip.date">
-
-      <label for="airport">Airport3</label>
-      <input type="text" id="airport3" name="airport" ng-model="tripsEdit.trip.airport">
-
-      <label for="date">Date four</label>
-      <input type="date" id="date4" name="date" ng-model="tripsEdit.trip.date">
-
-      <label ng-repeat="user in tripsEdit.users">
-      <input type="checkbox" name="attendees" checklist-model="tripsEdit.trip.attendee_ids" checklist-value="user.id">{{ user.username }}
-      </label>
-
+      <div>
+        <label ng-repeat="user in tripsEdit.users">
+        <input type="checkbox" name="attendees" checklist-model="tripsEdit.trip.attendee_ids" checklist-value="user.id">{{ user.username }}
+        </label>
+      </div>
       <button>Update</button>
     </form>
   </div>

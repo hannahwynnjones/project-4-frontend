@@ -9,6 +9,9 @@ function TripsShowCtrl(Trip, User, Comment, $stateParams, $state, $auth) {
 
   vm.trip = Trip.get($stateParams);
 
+
+//===================DELETE TRIP==============
+
   function tripsDelete() {
     vm.trip
       .$remove()
@@ -21,6 +24,8 @@ function TripsShowCtrl(Trip, User, Comment, $stateParams, $state, $auth) {
     Trip
       .update({id: vm.trip.id, trip: vm.trip });
   }
+
+//===============COMMENTS======================
 
   function addComment() {
     vm.comment.trip_id = vm.trip.id;
