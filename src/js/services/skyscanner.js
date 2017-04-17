@@ -1,5 +1,5 @@
 angular
-  .module('flightsApp')
+  .module('tripApp')
   .service('skyscanner', Skyscanner);
 
 Skyscanner.$inject = ['$http', 'API_URL'];

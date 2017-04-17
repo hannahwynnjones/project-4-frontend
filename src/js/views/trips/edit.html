@@ -5,6 +5,12 @@
     <form ng-submit="tripsEdit.update()">
 
 <!-- SLIDE 1 -->
+
+      <div>
+        <label for="base64">Image</label>
+        <input type="file" base64 name="base64" id="base64" ng-model="tripsEdit.trip.base64">
+      </div>
+
       <div>
         <label for="name">Name</label>
         <input type="text" id="name" name="name" ng-model="tripsEdit.trip.name">

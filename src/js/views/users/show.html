@@ -1,0 +1,17 @@
+<h1>USER SHOW PAGE</h1>
+
+  <div class="">
+    <h3>User Info</h3>
+
+      1 <img ng-src="{{ profileShow.user.imageSRC }}" alt="{{profileShow.user.username}}">
+      2 <img ng-src="{{ profileShow.user.image }}" alt="{{profileShow.user.username}}">
+
+      <p>Username: {{ profileShow.user.username }}</p>
+      <p>Email: {{ profileShow.user.email }}</p>
+  </div>
+
+  <br>
+  <br>
+
+    <button class ="" ng-if="main.profilePageId === profile.user.id" ui-sref="editProfile({id: main.profilePageId})">Edit profile</button>
+    <button class ="" ng-if="main.profilePageId === profile.user.id" ng-click="profile.delete()">Delete Profile</button>

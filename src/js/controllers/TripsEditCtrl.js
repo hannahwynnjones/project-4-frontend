@@ -17,8 +17,13 @@ function TripsEditCtrl(Trip, User, $stateParams, $state) {
     Trip
       .update({id: vm.trip.id, trip: vm.trip })
       .$promise
-      .then(() => $state.go('tripsShow', { id: vm.trip.id }));
+      // .then(() => $state.go('tripsShow', { id: vm.trip.id }));
+      .then(() => $state.go('tripsShow', $stateParams));
+
   }
 
   vm.update = tripsUpdate;
 }
+
+
+//going to $stateparams insteadof id: vm.trip.id was taken form image uploader

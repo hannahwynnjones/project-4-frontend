@@ -40,6 +40,16 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/register',
       templateUrl: 'js/views/auth/register.html',
       controller: 'AuthCtrl as auth'
+    })
+    .state('profile', {
+      url: '/user/:id',
+      templateUrl: 'js/views/users/show.html',
+      controller: 'ProfileCtrl as profile'
+    })
+    .state('editProfile', {
+      url: '/user/:id/edit',
+      templateUrl: 'js/views/users/edit.html',
+      controller: 'EditCtrl as editProfile'
     });
 
   $urlRouterProvider.otherwise('/');

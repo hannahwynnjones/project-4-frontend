@@ -21,18 +21,42 @@
       </div>
 
       <div>
+        <label for="base64">Image</label>
+        <input type="file" base64 name="base64" id="base64" ng-model="tripsNew.trip.base64">
+      </div>
+
+      <!-- <div>
         <label for="airport">Home Airport</label>
         <input type="text" id="airport1" name="airport" ng-model="tripsNew.trip.airport_ids">
-      </div>
+      </div> -->
 
 <!-- SLIDE 2 -->
 
       <div>
         <label>2nd Airport</label>
-        <label ng-repeat="airport in tripsNew.airports">
-          <input type="checkbox" name="airports" checklist-model="tripsNew.trip.airport_ids" checklist-value="airport.id">{{ airport }}
+        <label ng-repeat="flight in tripsNew.flights">
+          <input type="checkbox" name="airports" checklist-model="tripsNew.trip.airport_ids" checklist-value="airport.id">{{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}}
         </label>
       </div>
+
+      <ul>
+        <li ng-repeat="flight in tripsNew.flights">
+          <div class="row">
+            <div class="col-md-3">
+              <p>{{ flight.DestinationCity}}</p>
+            </div>
+            <div class="col-md-3">
+              <p>{{ flight.DestinationCountry}}</p>
+            </div>
+            <div class="col-md-2">
+              <p>£{{ flight.MinPrice}}</p>
+            </div>
+            <div class="col-md-4">
+              <p>{{ flight.CarrierName}}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
 
 <!-- SLIDE 3 -->
 

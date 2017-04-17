@@ -21,7 +21,7 @@ function TripsNewCtrl(Trip, User, $state, Airport, skyscanner) {
   }
 
   getFlights();
-}
+
   function tripsCreate() {
     Trip
       .save({ trip: vm.trip })
