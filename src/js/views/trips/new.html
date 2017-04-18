@@ -39,10 +39,9 @@
 <br>
 
   <label>Home Airport: </label>
-  <select name="homeAirport" ng-model="tripsNew.trip.airport_id">
-    <option ng-repeat="airport in tripsNew.airports" value="airport.airport_id">{{airport.name}}</option>
+  <select ng-model="tripsNew.trip.airport_id">
+    <option ng-repeat="airport in tripsNew.airports" name="airport_id" value="{{airport.id}}">{{airport.name}}</option>
   </select>
-
 
 <br>
 <br>

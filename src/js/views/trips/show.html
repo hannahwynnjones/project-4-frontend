@@ -3,9 +3,9 @@
 <div class="row">
   <div class="col-md-6">
     <div class="trip">
-      <img ng-src="{{ tripsShow.trip.image_src }}" alt"{{ tripsShow.trip.name }}">
+      <img ng-src="{{ tripsShow.trip.image_src }}" alt="{{ tripsShow.trip.name }}">
       <h2>Trip Name: {{ tripsShow.trip.name }}</h2>
-      <img ng-src="{{ tripsShow.trip.user.image_src }}" alt"{{ tripsShow.trip.user.username }}">
+      <img ng-src="{{ tripsShow.trip.user.image_src }}" alt="{{ tripsShow.trip.user.username }}">
       <p>Created by: <strong>{{ tripsShow.trip.user.username }}</strong></p>
 
   <!-- ====================BUTTONS: attending, edit, delete========================== -->
@@ -33,7 +33,7 @@
             <li ng-repeat="legs in tripsShow.trip.legs">
               {{ legs }}
               <img ng-src="{{ legs.airport.image }}" style="height: 200px">
-              <h3>Flying to: {{ legs.airport_id }}</h3>
+              <h3>Flying to: {{ legs.airport.name }}</h3>
               <h4>On the: {{ legs.start_date | date: 'longDate'}}</h4>
               <h4>Price: {{ legs.price }}</h4>
               <h4>Airline: {{ legs.airline }}</h4>

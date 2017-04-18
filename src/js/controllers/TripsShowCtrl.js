@@ -2,13 +2,15 @@ angular
   .module('tripApp')
   .controller('TripsShowCtrl', TripsShowCtrl);
 
-TripsShowCtrl.$inject = ['Trip', 'User', 'Comment', '$stateParams', '$state', '$auth'];
-function TripsShowCtrl(Trip, User, Comment, $stateParams, $state, $auth) {
+TripsShowCtrl.$inject = ['Trip', 'User', 'Comment', '$stateParams', '$state', '$auth', 'Airport'];
+function TripsShowCtrl(Trip, User, Comment, $stateParams, $state, $auth, Airport) {
   const vm = this;
   if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
 
   vm.trip = Trip.get($stateParams);
-
+  vm.users = User.query();
+  vm.airports = Airport.query();
+  vm.all = Airport.query();
 
 //===================DELETE TRIP==============
 

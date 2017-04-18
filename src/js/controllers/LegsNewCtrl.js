@@ -1,18 +1,20 @@
+//in leg shema: airport_id, start_date, price(API), airline(API), trip_id
+
 angular
   .module('tripApp')
-  .controller('TripsNewCtrl', TripsNewCtrl);
+  .controller('LegsNewCtrl', LegsNewCtrl);
 
-TripsNewCtrl.$inject = ['Trip', 'User', '$state', 'Airport'];
-function TripsNewCtrl(Trip, User, $state, Airport) {
+LegsNewCtrl.$inject = ['Leg', 'Trip', 'User', '$state', 'Airport', 'skyscanner'];
+function LegsNewCtrl(Leg, Trip, User, $state, Airport, skyscanner) {
   const vm = this;
-  vm.trip = {};
-  vm.users = User.query();
+  vm.leg = {};
+  vm.trips = Trip.query();
   vm.airports = Airport.query();
 
 // show all the Airports avaliable from LGW
 // Display list of flights as a checkbox, when checkbox is clicked, if flight.code matches airport.code, add to Params as airport_one for trip.-->
 
-  vm.all = Airport.query();
+  // vm.all = Airport.query();
   // vm.flights = [];
   //
   // function getFlights() {
@@ -25,12 +27,12 @@ function TripsNewCtrl(Trip, User, $state, Airport) {
   //
   // getFlights();
 
-  function tripsCreate() {
+  function legsCreate() {
     Trip
-      .save({ trip: vm.trip })
+      .save({ leg: vm.leg })
       .$promise
       .then(() => $state.go('tripsIndex'));
   }
 
-  vm.create = tripsCreate;
+  vm.create = legsCreate;
 }
