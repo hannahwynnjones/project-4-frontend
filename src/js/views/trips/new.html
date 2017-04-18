@@ -31,11 +31,18 @@
       </div> -->
 
 <!-- SLIDE 2 -->
-
+<!-- SLIDE 6 -->
+      <div>
+        <label>Attendees</label>
+        <label ng-repeat="user in tripsNew.users">
+          <input type="checkbox" name="attendees" checklist-model="tripsNew.trip.attendee_ids" checklist-value="user.id">{{ user.username }}
+        </label>
+      </div>
+<!--Display list of flights as a checkbox, when checkbox is clicked, if flight.code matches airport.code, add to Params as airport_one for trip.-->
       <div>
         <label>2nd Airport</label>
         <label ng-repeat="flight in tripsNew.flights">
-          <input type="checkbox" name="airports" checklist-model="tripsNew.trip.airport_ids" checklist-value="airport.id">{{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}}
+          <input type="checkbox" name="airports" checklist-model="tripsNew.trip.airport_ids" checklist-value="airport.code"><p>{{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}}</p>
         </label>
       </div>
 
@@ -53,6 +60,9 @@
             </div>
             <div class="col-md-4">
               <p>{{ flight.CarrierName}}</p>
+            </div>
+            <div class="col-md-4">
+              <p>{{ flight }}</p>
             </div>
           </div>
         </li>
@@ -79,13 +89,7 @@
         <input type="date" id="date3" name="date_three" ng-model="tripsNew.trip.date_three">
       </div>
 
-<!-- SLIDE 6 -->
-      <div>
-        <label>Attendees</label>
-        <label ng-repeat="user in tripsNew.users">
-          <input type="checkbox" name="attendees" checklist-model="tripsNew.trip.attendee_ids" checklist-value="user.id">{{ user.username }}
-        </label>
-      </div>
+
 
       <button>Create</button>
     </form>

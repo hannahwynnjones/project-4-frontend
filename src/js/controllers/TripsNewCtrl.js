@@ -8,9 +8,10 @@ function TripsNewCtrl(Trip, User, $state, Airport, skyscanner) {
   vm.trip = {};
   vm.users = User.query();
 
-//show all the Airports avaliable from LGW
+// show all the Airports avaliable from LGW
+// Display list of flights as a checkbox, when checkbox is clicked, if flight.code matches airport.code, add to Params as airport_one for trip.-->
 
-  vm.all = Airport.query();
+  // vm.all = Airport.query();
   vm.flights = [];
 
   function getFlights() {
