@@ -4,37 +4,49 @@
   <div class="col-md-6">
     <div class="trip">
       <img ng-src="{{ tripsShow.trip.image_src }}" alt"{{ tripsShow.trip.name }}">
-      <h2>{{ tripsShow.trip.name }}</h2>
-      <h3>{{ tripsShow.trip.description }}</h3>
+      <h2>Trip Name: {{ tripsShow.trip.name }}</h2>
+      <img ng-src="{{ tripsShow.trip.user.image_src }}" alt"{{ tripsShow.trip.user.username }}">
+      <p>Created by: <strong>{{ tripsShow.trip.user.username }}</strong></p>
 
-<h3>Dates:</h3>
-      <h4>{{ trip.date_one | date: 'longDate' }}</h4>
+  <!-- ====================BUTTONS: attending, edit, delete========================== -->
+      <div>
+        <button ng-click="tripsShow.toggleAttending()" ng-if="!tripsShow.isAttending() && main.isAuthenticated()">Attend</button>
+        <button ng-click="tripsShow.toggleAttending()" ng-if="tripsShow.isAttending() && main.isAuthenticated()">Reject</button>
 
+        <button ui-sref="tripsEdit({id: tripsShow.trip.id})" ng-if="main.isAuthenticated() && main.currentUser.id === tripsShow.trip.user.id">Edit</button>
+        <button ng-click="tripsShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === tripsShow.trip.user.id">Delete</button>
+      </div>
+  <!-- ================BASIC INFO====================== -->
+      <h3>Trip description: {{ tripsShow.trip.description }}</h3>
 
-      <h3>{{ tripsShow.trip.date_one }}</h3>
-      <h3>{{ tripsShow.trip.date_two }}</h3>
-      <h3>{{ tripsShow.trip.date_three }}</h3>
+      <h4>StartDate: {{ tripsShow.trip.start_date | date: 'longDate' }}</h4>
 
+      <h3>HomeAirport: {{ tripsShow.trip.airport.name }}</h3>
+      <img ng-src="{{ tripsShow.trip.airport.image }}" style="height: 200px">
+
+  <!-- =======================LEGS========================== -->
 
       <div class="col-md-6">
         <div class="airports">
-          <h5>Aiports:</h5>
+          <h1>Legs:</h1>
           <ul>
-            <li ng-repeat="airports in tripsShow.trip.airports">{{ airports.name }}</li>
+            <li ng-repeat="legs in tripsShow.trip.legs">
+              {{ legs }}
+              <img ng-src="{{ legs.airport.image }}" style="height: 200px">
+              <h3>Flying to: {{ legs.airport_id }}</h3>
+              <h4>On the: {{ legs.start_date | date: 'longDate'}}</h4>
+              <h4>Price: {{ legs.price }}</h4>
+              <h4>Airline: {{ legs.airline }}</h4>
+            </li>
           </ul>
         </div>
       </div>
 
-      <img ng-src="{{ tripsShow.trip.user.image_src }}" alt"{{ tripsShow.trip.user.username }}" >
-      <p>Created by: <strong>{{ tripsShow.trip.user.username }}</strong></p>
-
-      <button ng-click="tripsShow.toggleAttending()" ng-if="!tripsShow.isAttending() && main.isAuthenticated()">Attend</button>
-      <button ng-click="tripsShow.toggleAttending()" ng-if="tripsShow.isAttending() && main.isAuthenticated()">Reject</button>
-
-      <button ui-sref="tripsEdit({id: tripsShow.trip.id})" ng-if="main.isAuthenticated() && main.currentUser.id === tripsShow.trip.user.id">Edit</button>
-      <button ng-click="tripsShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === tripsShow.trip.user.id">Delete</button>
-    </div>
   </div>
+</div>
+
+<!-- ================ATENDEES================================= -->
+
   <div class="col-md-6">
     <div class="attendees">
       <h5>Attending</h5>
@@ -44,6 +56,8 @@
     </div>
   </div>
 </div>
+
+<!-- ======================COMMENTS============================= -->
 
 <div class="comments">
   <div class="row">
@@ -65,4 +79,9 @@
 
 {{ tripsShow.trip }}
 
-{{ tripsShow.trip.user }}
+<br>
+<br>
+<h2>what</h2>
+{{ tripsShow.trip.leg }}
+
+<!-- {{ tripsShow.trip.user }} -->

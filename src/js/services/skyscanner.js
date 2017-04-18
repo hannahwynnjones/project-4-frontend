@@ -17,6 +17,7 @@ function Skyscanner($http, API_URL) {
 
           quote.DestinationCity = destination.CityName;
           quote.DestinationCountry = destination.CountryName;
+          if (destination.IataCode) quote.code = destination.IataCode;
 
           const carrier = response.data.Carriers.find((carrier) => {
             return carrier.CarrierId === quote.OutboundLeg.CarrierIds[0];
