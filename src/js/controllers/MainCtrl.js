@@ -17,6 +17,9 @@ function MainCtrl($rootScope, $state, $auth) {
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
     if($auth.getPayload()) vm.currentUser = $auth.getPayload();
+
+    if($auth.getPayload()) vm.profilePageId = $auth.getPayload().userId;
+
   });
 
   const protectedStates = ['tripsNew', 'tripsEdit'];
@@ -28,6 +31,7 @@ function MainCtrl($rootScope, $state, $auth) {
       vm.message = 'You must be logged in to access this page.';
     }
     vm.pageName = toState.name;
+
   });
 
   function logout() {

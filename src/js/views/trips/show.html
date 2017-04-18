@@ -25,6 +25,7 @@
         </div>
       </div>
 
+      <img ng-src="{{ tripsShow.trip.user.image_src }}" alt"{{ tripsShow.trip.user.username }}" >
       <p>Created by: <strong>{{ tripsShow.trip.user.username }}</strong></p>
 
       <button ng-click="tripsShow.toggleAttending()" ng-if="!tripsShow.isAttending() && main.isAuthenticated()">Attend</button>
@@ -63,3 +64,5 @@
 </div>
 
 {{ tripsShow.trip }}
+
+{{ tripsShow.trip.user }}

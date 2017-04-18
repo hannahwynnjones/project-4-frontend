@@ -6,10 +6,11 @@ TripsEditCtrl.$inject = ['Trip', 'User', '$stateParams', '$state'];
 function TripsEditCtrl(Trip, User, $stateParams, $state) {
   const vm = this;
 
-  Trip.get($stateParams).$promise.then((trip) => {
-    vm.trip = trip;
-    vm.trip.date = new Date(trip.date); //otherwise angular gets confused by ruby's date format
-  });
+  Trip
+    .get($stateParams).$promise.then((trip) => {
+      vm.trip = trip;
+      vm.trip.date = new Date(trip.date); //otherwise angular gets confused by ruby's date format
+    });
 
   vm.users = User.query();
 

@@ -27,7 +27,7 @@ function ProfileCtrl(User, $stateParams, $http, $state, $auth, Trip){
   }
 
   vm.user = User.get($stateParams, ()=>{
-    console.log(vm.user.imageSRC);
+    console.log(vm.user);
     if(!vm.user.imageSRC) vm.user.imageSRC = vm.user.image;
     getUsersTrips();
   }); // vm.user is the current user's userpage rendering
@@ -41,12 +41,14 @@ function ProfileCtrl(User, $stateParams, $http, $state, $auth, Trip){
   vm.delete = profileDelete;
 }
 
+
+//=============================EDIT USER======================
+
 EditCtrl.$inject = ['User', '$state', '$stateParams'];
 function EditCtrl(User, $state, $stateParams){
   //gets the user from the profile passed in
   const vm = this;
 
-  vm.update= updateUser;
   vm.user = User.get($stateParams);
 //updates the user
   function updateUser(){
@@ -56,5 +58,6 @@ function EditCtrl(User, $state, $stateParams){
       $state.go('profile', $stateParams);
     });
   }
+  vm.update= updateUser;
 
 }
