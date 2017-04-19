@@ -9,8 +9,6 @@ function TripsIndexCtrl(Trip, User, $state, $auth) {
 
   vm.isAuthenticated = $auth.isAuthenticated;
 
-  console.log(vm.currentUser);
-
   // vm.user = User.query();
   vm.all = Trip.query();
   // vm.flights = [];

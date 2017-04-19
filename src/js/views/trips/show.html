@@ -33,7 +33,6 @@
           <h1>Legs:</h1>
           <ul>
             <li ng-repeat="legs in tripsShow.trip.legs">
-              {{ legs }}
               <img ng-src="{{ legs.airport.image }}" style="height: 200px">
               <h3>Flying to: {{ legs.airport.name }}</h3>
               <h4>On the: {{ legs.start_date | date: 'longDate'}}</h4>
@@ -44,7 +43,7 @@
         </div>
       </div>
 
-      <!-- <h4><a ui-sref="legsNew">New Leg</a></h4> -->
+      <h4><a ui-sref="legsNew({id: tripsShow.trip.id})">New Leg</a></h4>
 
       <!-- ======================ADDING LEGS============================= -->
 
@@ -56,7 +55,14 @@
           <!-- <div class="col-md-6" ng-if="main.isAuthenticated() && main.currentUser.id === tripsShow.trip.user.id"> -->
             <h2>Add Leg</h2>
             <form ng-submit="tripsShow.addLeg()">
+              <label>Date: </label>
+
               <input value="" type="date" id="start_date" name="start_date" ng-model="tripsShow.leg.start_date">
+
+              <label>New Airport: </label>
+              <select ng-model="tripsShow.leg.airport_id">
+                <option ng-repeat="airport in tripsShow.airports" name="airport_id" value="{{airport.id}}">{{airport.name}}</option>
+              </select>
 
               <!-- <div>
                 <label>2nd Airport</label>
@@ -65,7 +71,7 @@
                 </label>
               </div> -->
 
-              <button>Create</button>
+              <button ui-sref="legsNew">Create</button>
             </form>
           <!-- </div> -->
         </div>

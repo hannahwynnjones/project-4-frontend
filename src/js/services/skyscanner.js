@@ -6,9 +6,9 @@ Skyscanner.$inject = ['$http', 'API_URL'];
 function Skyscanner($http, API_URL) {
   const vm = this;
 
-  function getFlights(destination, origin ) {
+  function getFlights(destination, origin,  departDate) {
     return $http
-      .get(`${API_URL}/flights`, { params: { destination, origin } })
+      .get(`${API_URL}/flights`, { params: { destination, origin, departDate } })
       .then((response) => {
         response.data.Quotes.forEach((quote) => {
           const destination = response.data.Places.find((place) => {

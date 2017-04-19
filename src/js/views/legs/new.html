@@ -1,6 +1,6 @@
 <h1>New Leg</h1>
 
-{{ trip }}
+{{ legsNew.leg }}
 
 <div class="row">
   <div class="col-md-6">
@@ -10,19 +10,27 @@
 
       <div>
         <label for="start_date">Departure date</label>
-        <input value="2017-10-03" type="date" id="start_date" name="start_date" ng-model="legsNew.leg.start_date">
+        <input value="" type="date" id="start_date" name="start_date" ng-model="legsNew.leg.start_date">
       </div>
-<!--Display list of flights as a checkbox, when checkbox is clicked, if flight.code matches airport.code, add to Params as airport_one for leg.-->
+
+<br>
       <div>
-        <label>2nd Airport</label>
+        <label>2nd Airport:</label>
         <label ng-repeat="flight in legsNew.flights">
-          <input type="checkbox" name="flights" checklist-model="legsNew.leg.airport_ids" checklist-value="flight.DestinationCity"><p>{{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}} {{ flight.OutboundLeg.DestinationId }}</p>
+          <input type="checkbox" name="flights" checklist-model="legsNew.leg.code" checklist-value="flight.code"><p>{{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}} {{ flight.code }}</p>
         </label>
       </div>
+      <!-- <div>
+        <label>New Airport: </label>
+        <select ng-model="legsNew.leg.airport_id">
+          <option ng-repeat="airport in legsNew.airports" name="airport_id" value="{{airport.id}}">{{airport.name}}</option>
+        </select>
+      </div> -->
+
 
       <button>Create</button>
     </form>
+
+    <button ng-click="legsNew.getFlights()">Search</button>
   </div>
 </div>
-
-{{ tripsNew.trip }}
