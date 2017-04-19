@@ -10,7 +10,11 @@ function ProfileCtrl(User, $stateParams, $http, $state, $auth, Trip){
 
   if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
 
+  vm.isAuthenticated = $auth.isAuthenticated;
+
   vm.user = Trip.get($stateParams);
+
+  console.log(vm.currentUser);
 
   vm.allUserTrips = [];
 

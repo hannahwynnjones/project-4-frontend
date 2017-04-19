@@ -34,13 +34,13 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('legsNew', {
       url: '/trips/:id/legs/new',
       templateUrl: 'js/views/legs/new.html',
-      controller: 'TripsNewCtrl as legsNew'
+      controller: 'LegsNewCtrl as legsNew'
     })
-    .state('legsEdit', {
-      url: '/legs/:id/edit',
-      templateUrl: 'js/views/legs/edit.html',
-      controller: 'TripsEditCtrl as legsEdit'
-    })
+    // .state('legsEdit', {
+    //   url: '/trips/:id/legs/:id/edit',
+    //   templateUrl: 'js/views/legs/edit.html',
+    //   controller: 'LegsEditCtrl as legsEdit'
+    // })
     .state('login', {
       url: '/login',
       templateUrl: 'js/views/auth/login.html',

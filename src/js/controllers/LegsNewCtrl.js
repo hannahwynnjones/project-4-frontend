@@ -4,28 +4,37 @@ angular
   .module('tripApp')
   .controller('LegsNewCtrl', LegsNewCtrl);
 
-LegsNewCtrl.$inject = ['Leg', 'Trip', 'User', '$state', 'Airport', 'skyscanner'];
-function LegsNewCtrl(Leg, Trip, User, $state, Airport, skyscanner) {
+LegsNewCtrl.$inject = ['Leg', 'Trip', 'User', '$state', '$stateParams','Airport', 'skyscanner'];
+function LegsNewCtrl(Leg, Trip, User, $state, $stateParams, Airport, skyscanner) {
   const vm = this;
   vm.leg = {};
-  vm.trips = Trip.query();
+  vm.trip = Trip.query();
   vm.airports = Airport.query();
+  vm.trip = Trip.get($stateParams);
 
-// show all the Airports avaliable from LGW
-// Display list of flights as a checkbox, when checkbox is clicked, if flight.code matches airport.code, add to Params as airport_one for trip.-->
+
+
+  Trip.get($stateParams, (data) => {
+    const homeAirport = data.airport_id.code;
+    const departDate = data.start_date;
+    vm.trip = data;
+    console.log(data);
+  });
 
   // vm.all = Airport.query();
-  // vm.flights = [];
+  vm.flights = [];
   //
-  // function getFlights() {
-  //   skyscanner.getFlights('anywhere')
-  //     .then((quotes) => {
-  //       vm.flights = quotes;
-  //       console.log(quotes);
-  //     });
-  // }
-  //
-  // getFlights();
+  function getFlights() {
+    skyscanner.getFlights('anywhere')
+      .then((quotes) => {
+        vm.flights = quotes;
+        data.airline = quotes.carriers;
+        data.minPrice = quotes.minPrice;
+        console.log(quotes);
+      });
+  }
+
+  getFlights();
 
   function legsCreate() {
     Trip

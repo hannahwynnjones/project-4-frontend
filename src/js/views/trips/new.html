@@ -25,15 +25,6 @@
         <input type="file" base64 name="base64" id="base64" ng-model="tripsNew.trip.base64">
       </div>
 
-      <div>
-        <label for="airport">Home Airport</label>
-        <input type="text" id="trip_airport" name="airport" ng-model="tripsNew.trip.airport.name">
-      </div>
-
-      <label>Airports</label>
-      <label ng-repeat="airport in tripsNew.airports">
-        <input type="checkbox" name="airport_id" checklist-model="tripsNew.trip.airport_id" checklist-value="airport.id">{{ airport.name }}
-      </label>
 
 <br>
 <br>
@@ -54,12 +45,12 @@
         </label>
       </div>
 <!--Display list of flights as a checkbox, when checkbox is clicked, if flight.code matches airport.code, add to Params as airport_one for trip.-->
-      <!-- <div>
+      <div>
         <label>2nd Airport</label>
         <label ng-repeat="flight in tripsNew.flights">
           <input type="checkbox" name="flights" checklist-model="tripsNew.trip.airport_ids" checklist-value="flight.OutboundLeg.DestinationId"><p>{{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}} {{ flight.OutboundLeg.DestinationId }}</p>
         </label>
-      </div> -->
+      </div>
 
       <button>Create</button>
     </form>

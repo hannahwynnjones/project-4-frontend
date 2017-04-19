@@ -9,8 +9,11 @@ function TripsShowCtrl(Trip, User, Comment, $stateParams, $state, $auth, Airport
 
   vm.trip = Trip.get($stateParams);
   vm.users = User.query();
-  vm.airports = Airport.query();
-  vm.all = Airport.query();
+  // vm.legs = Leg.query();
+  // vm.airports = Airport.query();
+  // vm.all = Airport.query();
+
+console.log(vm.users)
 
 //===================DELETE TRIP==============
 
@@ -26,6 +29,36 @@ function TripsShowCtrl(Trip, User, Comment, $stateParams, $state, $auth, Airport
     Trip
       .update({id: vm.trip.id, trip: vm.trip });
   }
+
+//====================NEW LEG=====================
+
+  // function addLeg() {
+  //   vm.leg.trip_id = vm.leg.id;
+  //
+  //   Leg
+  //     .save({ leg: vm.leg })
+  //     .$promise
+  //     .then((leg) => {
+  //       vm.trip.legs.push(leg);
+  //       vm.leg = {};
+  //     });
+  // }
+  //
+  // vm.addLeg = addLeg;
+
+  // function deleteLeg(leg) {
+  //   Leg
+  //     .delete({ id: leg.id })
+  //     .$promise
+  //     .then(() => {
+  //       const index = vm.trip.legs.indexOf(leg);
+  //       vm.trip.legs.splice(index, 1);
+  //     });
+  // }
+  //
+  // vm.deleteLeg = deleteLeg;
+
+
 
 //===============COMMENTS======================
 
@@ -54,6 +87,8 @@ function TripsShowCtrl(Trip, User, Comment, $stateParams, $state, $auth, Airport
   }
 
   vm.deleteComment = deleteComment;
+
+//===================ATTENDEES================================
 
   function toggleAttending() {
     const index = vm.trip.attendee_ids.indexOf(vm.currentUser.id);
