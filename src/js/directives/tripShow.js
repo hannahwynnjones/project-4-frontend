@@ -54,7 +54,7 @@ function worldMap($window) {
 
       $scope.trip.legs.forEach((leg) => {
         legs.push(leg);
-        tripCoordinates.push({lat: leg.airport.lat, lng: leg.airport.lng})
+        tripCoordinates.push({lat: leg.airport.lat, lng: leg.airport.lng});
       });
 
       // console.log('thee trip', legs .length);
