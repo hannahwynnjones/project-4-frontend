@@ -17,9 +17,7 @@ function LegsNewCtrl(Leg, Trip, User, $state, $stateParams, Airport, skyscanner)
     .then((trip) => {
       vm.trip = trip;
       vm.lastleg = vm.trip.legs[vm.trip.legs.length -1].airport;
-      console.log(vm.lastleg);
-      // console.log(vm.trip.airport.code);
-      console.log(vm.airports);
+      vm.home = vm.trip.airport;
 
     });
 
@@ -29,20 +27,36 @@ function LegsNewCtrl(Leg, Trip, User, $state, $stateParams, Airport, skyscanner)
 
     skyscanner.getFlights('anywhere', origin, departDate)
       .then((quotes) => {
+        // vm.flights = quotes;
+        // vm.flights.sort(function(a, b) {
+        //   return parseFloat(a.price) - parseFloat(b.price);
+        // });
         vm.flights = quotes;
-        console.log(origin);
       });
   }
 
+  function goHome() {
+    const origin = vm.lastleg.code;
+    const departDate = vm.leg.start_date;
+    const destination = vm.home.code;
 
-  vm.getFlights = getFlights;
+    skyscanner.getFlights(destination, origin, departDate)
+      .then((quotes) => {
+        // vm.flights = quotes;
+        // vm.flights.sort(function(a, b) {
+        //   return parseFloat(a.price) - parseFloat(b.price);
+        // });
+        vm.flights = quotes;
+      });
+  }
 
   function legsCreate() {
     vm.leg.trip_id = $stateParams.id;
     vm.airports = vm.airports.filter((airport) => airport.code === vm.leg.code[0]);
-    console.log(vm.airports);
     vm.leg.airport_id = vm.leg.code[0];
     vm.leg.airport_id = vm.airports[0].id;
+    // vm.leg.airline = flight.CarrierName
+    // vm.leg.price = flight.price
     delete vm.leg['code'];
 
     Leg
@@ -52,6 +66,8 @@ function LegsNewCtrl(Leg, Trip, User, $state, $stateParams, Airport, skyscanner)
   }
 
   vm.create = legsCreate;
+  vm.getFlights = getFlights;
+  vm.goHome = goHome;
 }
 
 // if (vm.trip.legs.length === 0)

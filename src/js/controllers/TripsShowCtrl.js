@@ -2,16 +2,14 @@ angular
   .module('tripApp')
   .controller('TripsShowCtrl', TripsShowCtrl);
 
-TripsShowCtrl.$inject = ['Trip', 'User', 'Comment', '$stateParams', '$state', '$auth', 'Airport', 'Leg'];
-function TripsShowCtrl(Trip, User, Comment, $stateParams, $state, $auth, Airport, Leg) {
+TripsShowCtrl.$inject = ['Trip', 'User', 'Comment', '$stateParams', '$state', '$auth', 'Airport'];
+function TripsShowCtrl(Trip, User, Comment, $stateParams, $state, $auth, Airport) {
   const vm = this;
   if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
 
   vm.trip = Trip.get($stateParams);
   vm.users = User.query();
-  // vm.legs = Leg.query();
   vm.airports = Airport.query();
-  // vm.all = Airport.query();
 
 //===================DELETE TRIP==============
 
@@ -27,36 +25,6 @@ function TripsShowCtrl(Trip, User, Comment, $stateParams, $state, $auth, Airport
     Trip
       .update({id: vm.trip.id, trip: vm.trip });
   }
-
-//====================NEW LEG=====================
-
-  // function addLeg() {
-  //   vm.leg.trip_id = vm.leg.id;
-  //
-  //   Leg
-  //     .save({ leg: vm.leg })
-  //     .$promise
-  //     .then((leg) => {
-  //       vm.trip.legs.push(leg);
-  //       vm.leg = {};
-  //     });
-  // }
-  //
-  // vm.addLeg = addLeg;
-
-  // function deleteLeg(leg) {
-  //   Leg
-  //     .delete({ id: leg.id })
-  //     .$promise
-  //     .then(() => {
-  //       const index = vm.trip.legs.indexOf(leg);
-  //       vm.trip.legs.splice(index, 1);
-  //     });
-  // }
-  //
-  // vm.deleteLeg = deleteLeg;
-
-
 
 //===============COMMENTS======================
 
@@ -105,5 +73,31 @@ function TripsShowCtrl(Trip, User, Comment, $stateParams, $state, $auth, Airport
     return $auth.getPayload() && vm.trip.$resolved && vm.trip.attendee_ids.includes(vm.currentUser.id);
   }
   vm.isAttending = isAttending;
+
+//=========================GOOGLE MAPS============================
+
+  console.log(vm.trip.airport.lat);
+
+// function getLocationOfUser(location){
+//   geoCoder.getLocation(location)
+//   .then((data)=>{
+//     const latlng = data;
+//     initMap(latlng);
+//   });
+// }
+// function initMap(latlng) {
+//    // Creates The actual Map
+//   const map = new google.maps.Map(document.getElementById('maps'), {
+//     center: latlng,
+//     zoom: 10,
+//     scrollwheel: false,
+//     styles: mapStyles.styles
+//   });
+
+
+
+
+
+
 
 }

@@ -43,39 +43,40 @@
         </div>
       </div>
 
+  <!-- ======================ADDING LEGS============================= -->
+
+
       <h4><a ui-sref="legsNew({id: tripsShow.trip.id})">New Leg</a></h4>
+      <br>
+      <h4><a ui-sref="homesNew({id: tripsShow.trip.id})">Go Home</a></h4>
 
-      <!-- ======================ADDING LEGS============================= -->
 
-      <div class="">
-        <div class="">
+  <!-- ======================  GO HOME ============================= -->
 
-<!-- MAKE TOGGLE -->
+      <!-- <div class="">
+        <div class=""> -->
 
           <!-- <div class="col-md-6" ng-if="main.isAuthenticated() && main.currentUser.id === tripsShow.trip.user.id"> -->
-            <h2>Add Leg</h2>
-            <form ng-submit="tripsShow.addLeg()">
+            <!-- <h2>Go Home</h2>
+            <form ng-submit="tripsShow.create()">
               <label>Date: </label>
-
               <input value="" type="date" id="start_date" name="start_date" ng-model="tripsShow.leg.start_date">
 
-              <label>New Airport: </label>
-              <select ng-model="tripsShow.leg.airport_id">
-                <option ng-repeat="airport in tripsShow.airports" name="airport_id" value="{{airport.id}}">{{airport.name}}</option>
-              </select>
+              <br>
+                    <div>
+                      <label>Flights:</label>
+                      <label ng-repeat="flight in tripsShow.flights">
+                        <input type="checkbox" name="flights" checklist-model="tripsShow.leg.code" checklist-value="flight.code"><p>{{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}} {{ flight.code }}</p>
+                      </label>
+                    </div>
 
-              <!-- <div>
-                <label>2nd Airport</label>
-                <label ng-repeat="flight in legsNew.flights">
-                  <input type="checkbox" name="flights" checklist-model="tripsShow.leg.airport_ids" checklist-value="flight.DestinationCity"><p>{{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}} {{ flight.OutboundLeg.DestinationId }}</p>
-                </label>
-              </div> -->
+              <button ng-click="tripsShow.goHome()">Search</button>
 
-              <button ui-sref="legsNew">Create</button>
-            </form>
+              <button>Create</button>
+            </form> -->
           <!-- </div> -->
-        </div>
-      </div>
+        <!-- </div>
+      </div> -->
 
 
   </div>
