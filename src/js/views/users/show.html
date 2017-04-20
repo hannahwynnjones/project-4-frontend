@@ -10,6 +10,22 @@
       <p>Email: {{ profile.user.email }}</p>
   </div>
 
+  <ul class="row">
+    <li ng-repeat="trip in profileCtrl.all" class="col-md-6">
+      <div class="">
+        <p>Image below</p>
+        <img ng-src="{{ trip.image_src }}" alt="{{ trip.name }}">
+        <p>image above</p>
+        <h2>{{ trip.name }}</h2>
+        <h3>{{ trip.description }}</h3>
+        <p>Created by: <strong>{{ trip.user.username }}</strong></p>
+        <img ng-src="{{ trip.user.imageSRC }}" alt="{{trip.user.username}}">
+        <button ui-sref="tripsShow({id: trip.id})">View</button>
+      </div>
+    </li>
+  </ul>
+
+
   <br>
   <br>
 

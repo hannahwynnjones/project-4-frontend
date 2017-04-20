@@ -8,9 +8,9 @@ ProfileCtrl.$inject = ['User','$stateParams', '$http', '$state', '$auth', 'Trip'
 function ProfileCtrl(User, $stateParams, $http, $state, $auth, Trip){
   const vm = this;
 
-  if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
-
-  vm.isAuthenticated = $auth.isAuthenticated;
+  // if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
+  //
+  // vm.isAuthenticated = $auth.isAuthenticated;
 
   vm.user = Trip.get($stateParams);
 

@@ -18,7 +18,7 @@ function LegsNewCtrl(Leg, Trip, User, $state, $stateParams, Airport, skyscanner)
       vm.trip = trip;
       vm.lastleg = vm.trip.legs[vm.trip.legs.length -1].airport;
       vm.home = vm.trip.airport;
-
+      console.log(vm.home);
     });
 
   function getFlights() {

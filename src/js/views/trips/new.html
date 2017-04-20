@@ -45,12 +45,12 @@
         </label>
       </div>
 <!--Display list of flights as a checkbox, when checkbox is clicked, if flight.code matches airport.code, add to Params as airport_one for trip.-->
-      <div>
+      <!-- <div>
         <label>2nd Airport</label>
         <label ng-repeat="flight in tripsNew.flights">
           <input type="checkbox" name="flights" checklist-model="tripsNew.trip.airport_ids" checklist-value="flight.OutboundLeg.DestinationId"><p>{{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}} {{ flight.OutboundLeg.DestinationId }}</p>
         </label>
-      </div>
+      </div> -->
 
       <button>Create</button>
     </form>

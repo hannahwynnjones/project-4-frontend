@@ -11,6 +11,96 @@ function TripsShowCtrl(Trip, User, Comment, $stateParams, $state, $auth, Airport
   vm.users = User.query();
   vm.airports = Airport.query();
 
+  Trip.get($stateParams)
+    .$promise
+    .then((trip) => {
+      vm.trip = trip;
+      // vm.lastleg = vm.trip.legs[vm.trip.legs.length -1].airport;
+      vm.home = vm.trip.airport;
+      // vm.lat = vm.trip.leg.airport.lat;
+      // vm.lng = vm.trip.leg.airport.lng;
+      // console.log(trip.legs[1].airport.lat);
+    });
+
+    //=========================GOOGLE MAPS============================
+
+//   function maps() {
+//   // const lat = vm.lat;
+//   // const lng = vm.lng;
+//
+//     const homeLat = vm.home.lat;
+//     const homeLng = vm.home.lng;
+//
+//     // console.log(trip.legs[1].airport.lat);
+//     // necessary variables
+//     var map = null;
+//     var infowindow = null;
+//     var latLng = { lat: vm.home.lat, lng: vm.home.lat};
+//
+//     function initialize() {
+//       const latLng = { lat: homeLat, lng: homeLng};
+//       map = new google.maps.Map(document.getElementById('map-canvas'), {
+//         center: latLng,
+//         zoom: 3,
+//         scrollwheel: false
+//         // mapTypeId: 'roadmap'
+//       });
+//
+//     }
+//     initialize();
+//     console.log('workign');
+//     console.log(vm.lat);
+//     function addMarker(location) {
+//       var latLng = { lat: vm.lat, lng: vm.lng };
+//       var marker = new google.maps.Marker({
+//         position: latLng,
+//         map: map
+//       });
+//
+//       // Add a Google maps event listener to each that marker, which fires the markerClick function, passing in that individual marker and that individual location
+//       marker.addListener('click', () => {
+//         markerClick(marker, location);
+//       });
+//     }
+//
+// addMarker();
+//
+//     function markerClick(marker, location) {
+//       // If there is an open infowindow on the map, close it
+//       if(infowindow) infowindow.close();
+//
+//       // Locate the data that we need from the individual bike object
+//       const country = vm.trip.leg.airport.name;
+//       const date = vm.trip.leg.start_date;
+//       const price = vm.trip.leg.price;
+//       const airline = vm.trip.leg.airline;
+//
+//       // Update the infowindow variable to be a new Google InfoWindow
+//       infowindow = new google.maps.InfoWindow({
+//         content: `
+//         <div class="infowindow">
+//           <h3>${country}</h3>
+//           <p>flying to ${country} on the <strong>${date}</strong> with ${airline}</p>
+//         </div>
+//         `
+//       });
+//
+//       // Finally, open the new InfoWindow
+//       infowindow.open(map, marker);
+//     }
+//   }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //===================DELETE TRIP==============
 
   function tripsDelete() {
@@ -73,30 +163,6 @@ function TripsShowCtrl(Trip, User, Comment, $stateParams, $state, $auth, Airport
     return $auth.getPayload() && vm.trip.$resolved && vm.trip.attendee_ids.includes(vm.currentUser.id);
   }
   vm.isAttending = isAttending;
-
-//=========================GOOGLE MAPS============================
-
-  console.log(vm.trip.airport.lat);
-
-// function getLocationOfUser(location){
-//   geoCoder.getLocation(location)
-//   .then((data)=>{
-//     const latlng = data;
-//     initMap(latlng);
-//   });
-// }
-// function initMap(latlng) {
-//    // Creates The actual Map
-//   const map = new google.maps.Map(document.getElementById('maps'), {
-//     center: latlng,
-//     zoom: 10,
-//     scrollwheel: false,
-//     styles: mapStyles.styles
-//   });
-
-
-
-
 
 
 
