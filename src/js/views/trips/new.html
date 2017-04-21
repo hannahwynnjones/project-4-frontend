@@ -1,8 +1,10 @@
-<h1>New page</h1>
+<h1>New Trip</h1>
 
 <div class="row">
   <div class="col-md-6">
-    <form ng-submit="tripsNew.create()"  ng-if="tripsNew.trip.$resolved">
+    <form ng-submit="tripsNew.create()"  >
+
+<!-- ng-if="tripsNew.trip.$resolved" -->
 
 <!-- NEW TRIP -->
       <div>
@@ -26,16 +28,16 @@
       </div>
 
 
-<br>
-<br>
+      <br>
+      <br>
 
-  <label>Home Airport: </label>
-  <select ng-model="tripsNew.trip.airport_id">
-    <option ng-repeat="airport in tripsNew.airports" name="airport_id" value="{{airport.id}}">{{airport.name}}</option>
-  </select>
+        <label>Home Airport: </label>
+        <select ng-model="tripsNew.trip.airport_id">
+          <option ng-repeat="airport in tripsNew.airports" name="airport_id" value="{{airport.id}}">{{airport.name}}</option>
+        </select>
 
-<br>
-<br>
+      <br>
+      <br>
 
 <!-- ATTENDEES -->
       <div>
@@ -44,13 +46,6 @@
           <input type="checkbox" name="attendees" checklist-model="tripsNew.trip.attendee_ids" checklist-value="user.id">{{ user.username }}
         </label>
       </div>
-<!--Display list of flights as a checkbox, when checkbox is clicked, if flight.code matches airport.code, add to Params as airport_one for trip.-->
-      <!-- <div>
-        <label>2nd Airport</label>
-        <label ng-repeat="flight in tripsNew.flights">
-          <input type="checkbox" name="flights" checklist-model="tripsNew.trip.airport_ids" checklist-value="flight.OutboundLeg.DestinationId"><p>{{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}} {{ flight.OutboundLeg.DestinationId }}</p>
-        </label>
-      </div> -->
 
       <button>Create</button>
     </form>

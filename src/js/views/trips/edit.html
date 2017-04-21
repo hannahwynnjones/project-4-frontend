@@ -7,43 +7,32 @@
 <!-- SLIDE 1 -->
 
       <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" ng-model="tripsEdit.trip.name">
+      </div>
+
+      <div>
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" ng-model="tripsEdit.trip.description">
+      </div>
+
+      <div>
+        <label for="date">Departure date</label>
+        <input type="date" id="date1" name="date_one" ng-model="tripsEdit.trip.date_one">
+      </div>
+
+      <div>
         <label for="base64">Image</label>
         <input type="file" base64 name="base64" id="base64" ng-model="tripsEdit.trip.base64">
       </div>
 
       <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" ng-model="tripsEdit.trip.name">
-      </div>
-      <div>
-        <label for="description">Description</label>
-        <input type="text" id="description" name="description" ng-model="tripsEdit.trip.description">
-      </div>
-      <div>
-
-        <label for="date">Departure date</label>
-        <input type="date" id="date1" name="date_one" ng-model="tripsEdit.trip.date_one">
-      </div>
-      <div>
         <label for="airport">Home Airport</label>
-        <input type="text" id="airport1" name="airport" ng-model="tripsEdit.trip.airport">
 
-      </div>
-      <div>
-        <label for="date">Date two</label>
-        <input type="date" id="date2" name="date_two" ng-model="tripsEdit.trip.date_two">
-      </div>
-      <div>
-        <label for="airport">Airport2</label>
-        <input type="text" id="airport2" name="airport" ng-model="tripsEdit.trip.airport">
-      </div>
-      <div>
-        <label for="date">Date three</label>
-        <input type="date" id="date3" name="date_three" ng-model="tripsEdit.trip.date_three">
-      </div>
-      <div>
-        <label for="airport">Airport3</label>
-        <input type="text" id="airport3" name="airport" ng-model="tripsEdit.trip.airport">
+        <select ng-model="tripsEdit.trip.airport">
+          <option ng-repeat="airport in tripsEdit.airports" name="airport_id" value="{{airport.id}}">{{airport.name}}</option>
+        </select>
+
       </div>
 
       <div>

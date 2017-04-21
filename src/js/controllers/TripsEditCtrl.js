@@ -2,9 +2,13 @@ angular
   .module('tripApp')
   .controller('TripsEditCtrl', TripsEditCtrl);
 
-TripsEditCtrl.$inject = ['Trip', 'User', '$stateParams', '$state'];
-function TripsEditCtrl(Trip, User, $stateParams, $state) {
+TripsEditCtrl.$inject = ['Trip', 'User', '$stateParams', '$state', 'Airport'];
+function TripsEditCtrl(Trip, User, $stateParams, $state, Airport) {
   const vm = this;
+  vm.trip = {};
+  vm.users = User.query();
+  vm.airports = Airport.query();
+  // vm.all = Airport.query();
 
   Trip
     .get($stateParams).$promise.then((trip) => {
@@ -18,8 +22,8 @@ function TripsEditCtrl(Trip, User, $stateParams, $state) {
     Trip
       .update({id: vm.trip.id, trip: vm.trip })
       .$promise
-      // .then(() => $state.go('tripsShow', { id: vm.trip.id }));
-      .then(() => $state.go('tripsShow', $stateParams));
+      .then(() => $state.go('tripsShow', { id: vm.trip.id }));
+      // .then(() => $state.go('tripsShow', $stateParams));
 
   }
 

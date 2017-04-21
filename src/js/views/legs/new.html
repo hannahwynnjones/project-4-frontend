@@ -6,6 +6,8 @@
   <div class="col-md-6">
     <form ng-submit="legsNew.create()">
 
+
+
 <!-- NEW TRIP -->
 
       <div>
@@ -14,11 +16,22 @@
       </div>
 
 <br>
+
+<h5>Search flights</h5>
+<input type="text" class="search" ng-model="legsNew.q" placeholder="Search...">
+
+<h5>Price</h5>
+<select ng-model="legsNew.sort">
+  <option value="+price">Price ascending</option>
+  <option value="-price">Price descending</option>
+</select>
+
+  {{ legsNew.leg }}
       <div>
         <label>2nd Airport:</label>
         <label ng-repeat="flight in legsNew.flights">
-          <input type="checkbox" name="flights" checklist-model="legsNew.leg.code" checklist-value="flight.code"><p>{{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}} {{ flight.code }}</p>
-
+          {{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}} {{ flight.code }}
+          <input type="radio" name="flights" ng-model="legsNew.selectedFlight" ng-value="flight"><br>
         </label>
       </div>
       <!-- <div>

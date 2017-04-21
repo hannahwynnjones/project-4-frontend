@@ -20,6 +20,8 @@ img {
 // }
 
 .world-map {
-  height:600px;
-  width: 100%;
+  background-size: cover;
+  background-position: center;
+  max-width: 1024px;
+  height: 100vh;
 }

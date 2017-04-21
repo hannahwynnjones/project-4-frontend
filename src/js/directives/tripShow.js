@@ -48,7 +48,7 @@ function worldMap($window) {
 
       const map = new $window.google.maps.Map(element[0], {
         zoom: 2,
-        center: { lat: 37.7749, lng: 122.4194},
+        center: { lat: 0, lng: 20},
         scrollwheel: false
       });
 
@@ -69,7 +69,6 @@ function worldMap($window) {
 
       flightPath.setMap(map);
 
-
       legs.forEach((leg) => {
         const marker = new $window.google.maps.Marker({
           map: map,
@@ -79,9 +78,6 @@ function worldMap($window) {
 
         // add a click listener for an infowindow
       });
-
-
-
 
       // function removeMarkers(markers) {
       //   markers.forEach((marker) => {
