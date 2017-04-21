@@ -14,22 +14,21 @@
         <label for="start_date">Departure date</label>
         <input value="" type="date" id="start_date" name="start_date" ng-model="legsNew.leg.start_date">
       </div>
-
+      <button ng-click="legsNew.getFlights()">Search</button>
 <br>
-
+<!--
 <h5>Search flights</h5>
-<input type="text" class="search" ng-model="legsNew.q" placeholder="Search...">
+<input type="text" class="search" ng-model="legsNew.q" placeholder="Search..."> -->
 
-<h5>Price</h5>
+<!-- <h5>Price</h5>
 <select ng-model="legsNew.sort">
   <option value="+price">Price ascending</option>
   <option value="-price">Price descending</option>
-</select>
+</select> -->
 
-  {{ legsNew.leg }}
       <div>
         <label>2nd Airport:</label>
-        <label ng-repeat="flight in legsNew.flights">
+        <label ng-repeat="flight in legsNew.flights ">
           {{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}} {{ flight.code }}
           <input type="radio" name="flights" ng-model="legsNew.selectedFlight" ng-value="flight"><br>
         </label>
@@ -45,7 +44,7 @@
       <button>Create</button>
     </form>
 
+    <br>
     <button ng-click="legsNew.goHome()">Go Home</button>
-    <button ng-click="legsNew.getFlights()">Search</button>
   </div>
 </div>

@@ -2,9 +2,10 @@
 
 <div class="row">
   <div class="col-md-6">
-    <form ng-submit="tripsNew.create()"  >
+    <form name= "tripsNew.tripForm" ng-submit="tripsNew.create()"  >
 
-<!-- ng-if="tripsNew.trip.$resolved" -->
+<!-- <div ng-messages="tripsNew.tripForm.airport_id.$error" role="alert" ng-show="(tripsNew.tripForm.airport_id.$invalid)"> <div ng-messag="required">Airport is required</div>
+</div> -->
 
 <!-- NEW TRIP -->
       <div>
@@ -31,9 +32,9 @@
       <br>
       <br>
 
-        <label>Home Airport: </label>
+        <label for="airport_id">Home Airport: </label>
         <select ng-model="tripsNew.trip.airport_id">
-          <option ng-repeat="airport in tripsNew.airports" name="airport_id" value="{{airport.id}}">{{airport.name}}</option>
+          <option ng-repeat="airport in tripsNew.airports" name="airport_id" value="{{airport.id}}" required>{{airport.name}}</option>
         </select>
 
       <br>

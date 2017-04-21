@@ -3,6 +3,7 @@
 <world-map trip="tripsShow.trip" ng-if="tripsShow.trip.$resolved"></world-map>
 
 
+
 <div class="row">
   <div class="col-md-6">
     <div class="trip">
@@ -39,7 +40,7 @@
               <img ng-src="{{ legs.airport.image }}" style="height: 200px">
               <h3>Flying to: {{ legs.airport.name }}</h3>
               <h4>On the: {{ legs.start_date | date: 'longDate'}}</h4>
-              <h4>Price: {{ legs.price }}</h4>
+              <h4>Price: £{{ legs.price }}</h4>
               <h4>Airline: {{ legs.airline }}</h4>
             </li>
           </ul>
@@ -48,47 +49,15 @@
 
   <!-- ======================ADDING LEGS============================= -->
 
-
-      <h4><a ui-sref="legsNew({id: tripsShow.trip.id})">New Leg</a></h4>
-      <br>
-      <h4><a ui-sref="homesNew({id: tripsShow.trip.id})">Go Home</a></h4>
-
-
-  <!-- ======================  GO HOME ============================= -->
-
-      <!-- <div class="">
-        <div class=""> -->
-
-          <!-- <div class="col-md-6" ng-if="main.isAuthenticated() && main.currentUser.id === tripsShow.trip.user.id"> -->
-            <!-- <h2>Go Home</h2>
-            <form ng-submit="tripsShow.create()">
-              <label>Date: </label>
-              <input value="" type="date" id="start_date" name="start_date" ng-model="tripsShow.leg.start_date">
-
-              <br>
-                    <div>
-                      <label>Flights:</label>
-                      <label ng-repeat="flight in tripsShow.flights">
-                        <input type="checkbox" name="flights" checklist-model="tripsShow.leg.code" checklist-value="flight.code"><p>{{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}} {{ flight.code }}</p>
-                      </label>
-                    </div>
-
-              <button ng-click="tripsShow.goHome()">Search</button>
-
-              <button>Create</button>
-            </form> -->
-          <!-- </div> -->
-        <!-- </div>
-      </div> -->
-
+      <h4><a ui-sref="legsNew({id: tripsShow.trip.id})" ng-if="main.isAuthenticated() && main.currentUser.id === tripsShow.trip.user.id">New Leg or Go Home?</a></h4>
 
   </div>
 </div>
 
 <!-- ================ATENDEES================================= -->
 
-  <div class="col-md-6">
-    <div class="attendees">
+  <div class="">
+    <div class="">
       <h5>Attending</h5>
       <ul>
         <li ng-repeat="attendee in tripsShow.trip.attendees">{{ attendee.username }}</li>
@@ -124,6 +93,5 @@
 <br>
 <br>
 <h2>what</h2>
-{{ tripsShow.trip.leg }}
 
 <!-- {{ tripsShow.trip.user }} -->

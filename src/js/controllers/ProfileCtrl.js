@@ -14,7 +14,7 @@ function ProfileCtrl(User, $stateParams, $http, $state, $auth, Trip){
 
   vm.user = Trip.get($stateParams);
 
-  console.log(vm.currentUser);
+  console.log('workigggg', vm.user.id);
 
   vm.allUserTrips = [];
 

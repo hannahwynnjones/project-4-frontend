@@ -11,17 +11,20 @@ function TripsShowCtrl(Trip, User, Comment, $stateParams, $state, $auth, Airport
   vm.users = User.query();
   vm.airports = Airport.query();
 
+
   Trip.get($stateParams)
     .$promise
     .then((trip) => {
+
       vm.trip = trip;
       // vm.lastleg = vm.trip.legs[vm.trip.legs.length -1].airport;
       vm.home = vm.trip.airport;
       // vm.lat = vm.trip.leg.airport.lat;
       // vm.lng = vm.trip.leg.airport.lng;
       // console.log(trip.legs[1].airport.lat);
-    });
 
+    });
+  console.log(vm.trip);
 //===================DELETE TRIP==============
 
   function tripsDelete() {
@@ -84,7 +87,6 @@ function TripsShowCtrl(Trip, User, Comment, $stateParams, $state, $auth, Airport
     return $auth.getPayload() && vm.trip.$resolved && vm.trip.attendee_ids.includes(vm.currentUser.id);
   }
   vm.isAttending = isAttending;
-
 
 
 }

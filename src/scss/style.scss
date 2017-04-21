@@ -20,8 +20,18 @@ img {
 // }
 
 .world-map {
-  background-size: cover;
-  background-position: center;
-  max-width: 1024px;
+  // background-size: cover;
+  // background-position: center;
+  // max-width: 1024px;
   height: 100vh;
+}
+
+// Map - may need to remove later
+// #map {
+//   height: calc(100vh - 50px);
+// }
+
+.infowindow {
+  font-family: arial, monospace;
+  color: lightgrey;
 }

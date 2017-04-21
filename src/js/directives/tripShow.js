@@ -6,24 +6,6 @@ angular
 
 worldMap.$inject = ['$window'];
 function worldMap($window) {
-  // const vm = this;
-  // vm.users = User.query();
-  // vm.airports = Airport.query();
-  // vm.trip = Trip.get($stateParams);
-  //
-  // Trip.get($stateParams)
-  //   .$promise
-  //   .then((trip) => {
-  //     vm.trip = trip;
-  //     // vm.lastleg = vm.trip.legs[vm.trip.legs.length -1].airport;
-  //     vm.home = vm.trip.airport;
-  //     // vm.lat = vm.trip.leg.airport.lat;
-  //      console.log(vm.home);
-  //      const home = vm.home;
-  //
-  //     // vm.lng = vm.trip.leg.airport.lng;
-  //     // console.log(trip.legs[1].airport.lat);
-  //   });
 
   const directive = {
     restrict: 'E',
@@ -34,8 +16,6 @@ function worldMap($window) {
     },
 
     link($scope, element) {
-
-      // console.log('the trip legs', $scope.trip.legs.length);
 
       const legs = [{
         start_date: $scope.trip.start_date,
@@ -57,8 +37,8 @@ function worldMap($window) {
         tripCoordinates.push({lat: leg.airport.lat, lng: leg.airport.lng});
       });
 
-      // console.log('thee trip', legs .length);
 
+//=======FLIGHT PATH==================
       var flightPath = new google.maps.Polyline({
         path: tripCoordinates,
         geodesic: true,
@@ -68,7 +48,7 @@ function worldMap($window) {
       });
 
       flightPath.setMap(map);
-
+//====================================================
       legs.forEach((leg) => {
         const marker = new $window.google.maps.Marker({
           map: map,
@@ -76,30 +56,68 @@ function worldMap($window) {
           position: {lat: leg.airport.lat, lng: leg.airport.lng}
         });
 
-        // add a click listener for an infowindow
+        //  legs.forEach((marker) => {
+        // google.maps.event.addListener(marker, 'click', function() {
+        //   marker.info.open(map, this);
+        // });
+
+        var infowindow = new google.maps.InfoWindow({ content: '<p>Lots of Content</p>' });
+
+        marker.addListener('click', function() {
+          console.log('click function working');
+          map.setZoom(5);
+          map.setCenter(marker.position);
+          infowindow.open(map, marker);
+          // vm.position = marker.position.toJSON();
+
+          // Leg
+          //   .query(vm.position)
+          //   .$promise
+          //   .then((legs) => {
+          //     vm.filteredStops = [];
+          //     stops.forEach((leg) => {
+          //       stop.posts.forEach((post) => {
+          //         vm.filteredStops.push(post);
+          //       });
+          //     });
+          //   });
+        // });
+        });
+
+//////////////////////////////
+        // var contentString = '<div id="content">'+
+        //     '<div id="siteNotice">'+
+        //     '</div>'+
+        //     '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+        //     '<div id="bodyContent">'+
+        //     '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+        //     'sandstone rock formation in the southern part of the '+
+        //     'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+        //     'south west of the nearest large town, Alice Springs; 450&#160;km '+
+        //     '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+        //     'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+        //     'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+        //     'Aboriginal people of the area. It has many springs, waterholes, '+
+        //     'rock caves and ancient paintings. Uluru is listed as a World '+
+        //     'Heritage Site.</p>'+
+        //     '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+        //     'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+        //     '(last visited June 22, 2009).</p>'+
+        //     '</div>'+
+        //     '</div>';
+        //
+        // var infowindow = new google.maps.InfoWindow({
+        //   content: contentString
+        // });
+        // // add a click listener for an infowindow
+        // marker.addListener('click', function() {
+        //   console.log('working???');
+        //   infowindow.open(map, marker);
+        //   console.log('working???');
+        // });
+/////////////////////////////////////////////
+
       });
-
-      // function removeMarkers(markers) {
-      //   markers.forEach((marker) => {
-      //     marker.setMap(null);
-      //   });
-      //   return [];
-      // }
-
-      // function addLegMarkers() {
-      //   legMarkers = removeMarkers(legMarkers);
-      //   $scope.legMarkers.forEach((leg) => {
-      //     const marker = new $window.google.maps.Marker({
-      //       position: { lat: parseFloat(leg.airport.lat), lng: parseFloat(leg.airport.lng)},
-      //       map: map
-      //     });
-      //
-      //     legMarkers(marker);
-      //   });
-      // }
-      //
-      // addLegMarkers();
-
     }
   };
   return directive;

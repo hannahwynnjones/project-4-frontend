@@ -54,7 +54,6 @@ function LegsNewCtrl(Leg, Trip, User, $state, $stateParams, Airport, skyscanner)
       .then((quotes) => {
         vm.flights = quotes;
         console.log(quotes.length);
-        const length = quotes.length;
         // removeDuplicates();
       });
 
@@ -101,7 +100,7 @@ function LegsNewCtrl(Leg, Trip, User, $state, $stateParams, Airport, skyscanner)
     vm.leg.trip_id = $stateParams.id;
     vm.leg.airport_id = vm.airports.find((airport) => airport.code === vm.selectedFlight.code).id;
     vm.leg.airline = vm.selectedFlight.CarrierName;
-    vm.leg.price = vm.selectedFlight.MinPr;
+    vm.leg.price = vm.selectedFlight.MinPrice;
 
     Leg
       .save({ leg: vm.leg })

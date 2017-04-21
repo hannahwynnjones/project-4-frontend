@@ -7,6 +7,8 @@ function MainCtrl($rootScope, $state, $auth) {
   const vm = this;
   vm.isAuthenticated = $auth.isAuthenticated;
 
+  console.log('workigggg', vm.currentUser);
+
   $rootScope.$on('error', (e, err) => {
     vm.stateHasChanged = false;
     vm.message = err.data.message;
@@ -17,8 +19,10 @@ function MainCtrl($rootScope, $state, $auth) {
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
     if($auth.getPayload()) vm.currentUser = $auth.getPayload();
+    console.log('workigggg', vm.currentUser);
 
     if($auth.getPayload()) vm.profilePageId = $auth.getPayload().userId;
+
   });
 
   const protectedStates = ['tripsNew', 'tripsEdit'];
