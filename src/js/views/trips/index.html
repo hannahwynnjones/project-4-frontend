@@ -1,6 +1,6 @@
 <h1>Index page</h1>
 
-<h3>Welcome back {{ tripsIndex.currentUser.first_name }}</h3
+<h3>Welcome back {{ tripsIndex.currentUser.first_name }}</h3>
 
 <img ng-src="{{ tripsIndex.currentUser.img_src }}" alt="tripsIndex.currentUser.username">
 
@@ -16,8 +16,12 @@
       <h2>{{ trip.name }}</h2>
       <h3>{{ trip.description }}</h3>
       <p>Created by: <strong>{{ trip.user.username }}</strong></p>
-      <img ng-src="{{ trip.user.imageSRC }}" alt="{{trip.user.username}}">
+
+      <img ng-src="{{ trip.user.image_src }}" alt="{{trip.user.username}}">
       <button ui-sref="tripsShow({id: trip.id})">View</button>
     </div>
   </li>
 </ul>
+
+
+<a ui-sref="tripsNew"><img src="https://pixabay.com/photo-1264062/" alt="Map image"></a>

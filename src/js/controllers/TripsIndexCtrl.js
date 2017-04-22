@@ -6,27 +6,9 @@ TripsIndexCtrl.$inject = ['Trip', 'User', '$state', '$auth'];
 function TripsIndexCtrl(Trip, User, $state, $auth) {
   const vm = this;
   if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
-
+  console.log(vm.currentUser);
   vm.isAuthenticated = $auth.isAuthenticated;
-
-  // vm.user = User.query();
+  const currentUser = vm.currentUser;
+  vm.user = User.query();
   vm.all = Trip.query();
-  // vm.flights = [];
-  //
-  // function getFlights() {
-  //   skyscanner.getFlights('anywhere')
-  //     .then((quotes) => {
-  //       vm.flights = quotes;
-  //     });
-  // }
-  //
-  // getFlights();
 }
-
-
-
-// TripsIndexCtrl.$inject = ['Trip'];
-// function TripsIndexCtrl(Trip) {
-//   const vm = this;
-//
-//   vm.all = Trip.query();

@@ -33,10 +33,10 @@
 
 
         <select ng-model="tripsNew.trip.airport_id">
-          <option ng-repeat="airport in tripsNew.airports | filter:{country:'uk'}" required >{{airport.name}}</option>
+          <option ng-repeat="airport in tripsNew.airports | filter:{country:'uk'}" name="airport_id" value="{{airport.id}}" required >{{airport.name}}</option>
         </select>
 
-
+    
         <!-- <select id="players" ng-model="selectedPlayer"
           ng-options="player.name for player in players | filter:{live:'true'} track by player.$id">
             <option value="">Select player</option>
