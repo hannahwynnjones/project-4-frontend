@@ -1,0 +1,139 @@
+@import 'colorSchemes';
+@import 'responsive';
+
+
+
+div {
+  margin: 10px;
+}
+
+img {
+  max-height: 300px;
+}
+
+li {
+  list-style: none;
+}
+
+.profileSml {
+  width: 100px;
+}
+
+////////////////////////NAV-BAR/////////////////////////////
+
+body{
+  overflow-x: hidden;
+  background-color: white;
+  font-family: 'Open Sans Condensed', sans-serif;
+  margin-top: 100px;
+  text-align: center;
+  .enabled {
+    display:none;
+  }
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 201;
+  height: 60px;
+  width: 100%;
+  margin: 0;
+  background-color: rgba(20, 20, 20, 0);
+  transition: background-color 0.2s ease;
+  &.opaque {
+    background-color: rgba(20, 20, 20, 0.6);
+  }
+nav {
+  ul {
+    background-color: rgba(40, 40, 40, 0.2);
+    // width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100px;
+      li {
+        display: inline-block;
+        line-height: 50px;
+        float: right;
+        padding-left: 15px;
+        &.logo {
+          float: left;
+          padding: 0;
+          h1 {
+            margin: 0;
+            padding: 0;
+            line-height: 53px;
+            color: white;
+          }
+        }
+        &.menu-icon {
+          display: none;
+          cursor: pointer;
+          color: orange;
+        }
+        a {
+          font-family: 'Playfair Display', serif;
+          display: inline;
+          font-size: 18px;
+          color: white;
+          font-weight: bold;
+          display: block;
+          position: relative;
+          z-index: 11;
+          &.active {
+            color: red;
+            opacity: 0.5;
+            text-decoration: line-through;
+            animation: none;
+          }
+        }
+      }
+
+  }
+}
+}
+.nav-extension {
+  width: 100%;
+  background-color: rgba(300,300,300,0.9);
+  position: fixed;
+  top: 47px;
+  left: 0;
+  z-index: 10;
+  margin-bottom: 50px;
+  height: 70px;
+  h1{
+    margin-left: 100px;
+    padding-left: 140px;
+    margin-top: 30px;
+  }
+}
+
+.title {
+  text-align: left;
+}
+
+////////////////TAKEN FORM NG MESSAGES ERROR HANDLGING////////////
+
+
+
+// form.ng-dirty {
+//   input {
+//     &.ng-valid {
+//       border: 2px solid $valid-color;
+//     }
+//
+//     &.ng-invalid {
+//       border: 1px solid $invalid-color;
+//     }
+//   }
+// }
+
+.ng-message-error p {
+  border: 1px solid $invalid-color;
+  background: lighten($invalid-color, 30%);
+  padding: 5px;
+  border-radius: 5px;
+  color: $invalid-color;
+}

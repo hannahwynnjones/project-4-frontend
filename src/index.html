@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEi_tighHwZ4dswlQz7CWXWxpHZ17LzoM"></script>
-
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Annie+Use+Your+Telescope|Handlee|Loved+by+the+King|Poiret+One" rel="stylesheet">
     <title>TripApp!</title>
     <!-- inject:js -->
     <!-- endinject -->
@@ -17,17 +17,20 @@
 
     <header>
       <nav>
-        <ul>
-          <li><a ui-sref="home">TripApp</a></li>
-<br>
-          <li ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></li>
-          <li ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></li>
-          <li ng-if="main.isAuthenticated()"><a ui-sref="profile({id: main.profilePageId})">My Profile</a></li>
-          <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">Logout</a></li>
-          <li ng-if="main.isAuthenticated()"><a ui-sref="tripsNew">New Trip</a></li>
-          <li ng-if="main.isAuthenticated()"><a ui-sref="legsNew">New Leg</a></li>
-          <li><a ui-sref="tripsIndex">Trips index</a></li>
+        <ul class="container">
+          <li class="logo"><h1 class="title">TripApp</h1></li>
+          <li class="menu-icon" ng-click="navIsOpen = !navIsOpen">&#9776;</li>
+          <div class="dropdown" ng-class="{ 'open': navIsOpen }">
+            <li ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></li>
+            <li ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></li>
+            <li ng-if="main.isAuthenticated()"><a ui-sref="profile({id: main.profilePageId})">My Profile</a></li>
+            <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">Logout</a></li>
+            <li ng-if="main.isAuthenticated()"><a ui-sref="tripsNew">New Trip</a></li>
+            <li ng-if="main.isAuthenticated()"><a ui-sref="legsNew">New Leg</a></li>
+            <li><a ui-sref="tripsIndex">Trips index</a></li>
+          </div>
         </ul>
+
       </nav>
     </header>
     <div class="message" ng-if="main.message">

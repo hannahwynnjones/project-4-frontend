@@ -5,6 +5,8 @@ angular
 MainCtrl.$inject = ['$rootScope', '$state', '$auth'];
 function MainCtrl($rootScope, $state, $auth) {
   const vm = this;
+  vm.navIsOpen = false;
+
   vm.isAuthenticated = $auth.isAuthenticated;
 
   // console.log('workigggg', vm.currentUser);
@@ -22,6 +24,8 @@ function MainCtrl($rootScope, $state, $auth) {
     console.log('workigggg', vm.currentUser);
 
     if($auth.getPayload()) vm.profilePageId = $auth.getPayload().userId;
+    vm.navIsOpen = false;
+
 
   });
 

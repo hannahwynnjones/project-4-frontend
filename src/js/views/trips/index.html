@@ -1,27 +1,37 @@
-<h1>Index page</h1>
 
-<h3>Welcome back {{ tripsIndex.currentUser.first_name }}</h3>
+<div class="row">
+  <h3>Welcome back... {{ tripsIndex.currentUser.first_name }}</h3>
+</div>
 
-<img ng-src="{{ tripsIndex.currentUser.img_src }}" alt="tripsIndex.currentUser.username">
+<div ng-if="main.isAuthenticated()" class="row">
+  <button ui-sref="tripsNew" class="imgButtonImage image-one">
+    <div class="imgButtonText"> New Trip</div>
+  </button>
 
-<h4><a ui-sref="tripsNew">New Trip</a></h4>
+  <button ui-sref="profile({id: main.profilePageId})" class="imgButtonImage image-two">
+    <div class="imgButtonText"> My Profile</div>
+  </button>
 
+  <button ui-sref="profilesIndex" class="imgButtonImage image-three">
+    <div class="imgButtonText"> All profiles</div>
+  </button>
+</div>
 
-<ul class="row">
-  <li ng-repeat="trip in tripsIndex.all" class="col-md-6">
-    <div class="">
-      <p>Image below</p>
-      <img ng-src="{{ trip.image_src }}" alt="{{ trip.name }}">
-      <p>image above</p>
-      <h2>{{ trip.name }}</h2>
-      <h3>{{ trip.description }}</h3>
-      <p>Created by: <strong>{{ trip.user.username }}</strong></p>
+<div class="row">
+  <h1>All Trips</h1>
+</div>
 
-      <img ng-src="{{ trip.user.image_src }}" alt="{{trip.user.username}}">
-      <button ui-sref="tripsShow({id: trip.id})">View</button>
-    </div>
-  </li>
-</ul>
+<div class="row tripsIndex">
 
-
-<a ui-sref="tripsNew"><img src="https://pixabay.com/photo-1264062/" alt="Map image"></a>
+  <ul>
+    <li ng-repeat="trip in tripsIndex.all" class="col-md-4 ">
+      <div class="trip">
+        <img ng-src="{{ trip.image_src }}" alt="{{ trip.name }}">
+        <a ui-sref="tripsShow({id: trip.id})">{{ trip.name }}</a>
+        <h3>{{ trip.description }}</h3>
+        <img class="profileSml" ng-src="{{ trip.user.image_src }}" alt="{{trip.user.username}}">
+        <span>Created by: <strong>{{ trip.user.username }}</strong></span>
+      </div>
+    </li>
+  </ul>
+</div>

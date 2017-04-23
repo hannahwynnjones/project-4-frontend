@@ -1,15 +1,85 @@
-button {
-  margin: 30px;
-  font-size: 25px;
-}
-div {
-  margin: 10px;
+@import 'templates';
+@import 'colorSchemes';
+@import 'responsive';
+
+main {
+  margin-top: 150px;
+  margin: 150px, 200px, 0, 200px;
 }
 
-img {
-  max-height: 300px;
+//////////////STATIC - HOME ///////////////////
+
+.homeImage {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../images/home.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
 }
-/////////////////////////MAPS//////////////////////
+
+.title {
+  font-size: 50px;
+  font-family: 'Amatic SC', cursive;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.info {
+  height: 600px;
+  .infoBox {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    transform: translate(-50%, -50%);
+    img {
+      height: 200px;
+    }
+  }
+}
+
+////////////////TRIPS INDEX////////////////////
+
+
+  .imgButtonImage {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../images/home.jpg');
+    height: 200px;
+    width: 300px;
+    margin: 30px;
+    &.image-one {
+    background-image: url('https://images.unsplash.com/photo-1489381452699-84dc6e8ac8f7?dpr=1&auto=compress,format&fit=crop&w=376&h=250&q=80&cs=tinysrgb&crop=&bg=');
+    }
+    &.image-two {
+      background-image: url('https://images.unsplash.com/photo-1490730141103-6cac27aaab94?dpr=1&auto=compress,format&fit=crop&w=376&h=251&q=80&cs=tinysrgb&crop=&bg=');
+    }
+    &.image-three {
+      background-image: url('https://images.unsplash.com/photo-1489993360877-883980cc7333?dpr=1&auto=format&fit=crop&w=1080&h=720&q=80&cs=tinysrgb&crop=&bg=');
+    }
+  }
+
+  .imgButtonText {
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+
+  .trip {
+    border-style: solid;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: left;
+  }
+
+
+///////////////TRIPS SHOW////////////////////
+
+  ////////////MAPS//////////////////////
 
 // #map-canvas {
 //   height:600px;
@@ -37,28 +107,39 @@ img {
 }
 
 
-////////////////TAKEN FORM NG MESSAGES ERROR HANDLGING
+////////////////NEW TRIP////////////////////////////////
 
-$invalid-color: #EB1D3A;
-$valid-color:   green;
 
-// form.ng-dirty {
-//   input {
-//     &.ng-valid {
-//       border: 2px solid $valid-color;
-//     }
-//
-//     &.ng-invalid {
-//       border: 1px solid $invalid-color;
-//     }
-//   }
-// }
 
-.ng-message-error p {
-  border: 1px solid $invalid-color;
-  background: lighten($invalid-color, 30%);
-  padding: 5px;
-  border-radius: 5px;
-  color: $invalid-color;
-}
-/////////////////////////////////////////////////////////
+
+////////////////EDIT TRIP////////////////////////////////
+
+
+
+
+////////////////NEW LEGS////////////////////////////////
+
+
+
+
+////////////////EDIT LEGS////////////////////////////////
+
+
+
+///////////////PROFILES INDEX////////////////////////////
+
+
+
+////////////////PROFILE PAGE////////////////////////////
+
+
+
+////////////////EDIT PROFILE///////////////////////////
+
+
+
+/////////////////REGESTER PAGE/////////////////////////
+
+
+
+//////////////////LOGIN PAGE///////////////////////////
