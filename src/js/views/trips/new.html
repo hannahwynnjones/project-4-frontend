@@ -1,11 +1,9 @@
-<h1>New Trip</h1>
+<div class="newTrip">
+  <div class="box2">
+    <div class="box">
 
-<div class="row">
-  <div class="col-md-6">
+    <h1>New Trip</h1>
     <form name= "tripsNew.tripForm" ng-submit="tripsNew.create()"  >
-
-
-<!-- NEW TRIP -->
       <div>
         <label for="name">Name</label>
         <input type="text" id="name" name="name" ng-model="tripsNew.trip.name">
@@ -26,40 +24,28 @@
         <input type="file" base64 name="base64" id="base64" ng-model="tripsNew.trip.base64">
       </div>
 
-      <br>
-      <br>
       <div>
         <label for="airport_id">Home Airport: </label>
-
 
         <select ng-model="tripsNew.trip.airport_id">
           <option ng-repeat="airport in tripsNew.airports | filter:{country:'uk'}" name="airport_id" value="{{airport.id}}" required >{{airport.name}}</option>
         </select>
 
-    
-        <!-- <select id="players" ng-model="selectedPlayer"
-          ng-options="player.name for player in players | filter:{live:'true'} track by player.$id">
-            <option value="">Select player</option>
-        </select> -->
-
         <div class="ng-message-error" ng-messages="tripsNew.tripForm.airport_id.$error" role="alert" ng-show="(tripsNew.tripForm.$submitted || tripsNew.tripForm.airport_id.$touched)"> <div ng-messag="required">Airport is required</div>
         </div>
       </div>
 
-      <br>
-      <br>
-
 <!-- ATTENDEES -->
       <div>
-        <label>Attendees</label>
+        <div class="">
+          <label>Invite some friends:</label>
+        </div>
         <label ng-repeat="user in tripsNew.users">
-          <input type="checkbox" name="attendees" checklist-model="tripsNew.trip.attendee_ids" checklist-value="user.id">{{ user.username }}
+        <input type="checkbox" name="attendees" checklist-model="tripsNew.trip.attendee_ids" checklist-value="user.id"> <p>{{ user.username }}</p>
         </label>
       </div>
-
-      <button>Create</button>
+        <button>Create Trip</button>
     </form>
   </div>
+  </div>
 </div>
-
-{{ tripsNew.trip }}

@@ -1,50 +1,26 @@
-<h1>New Leg</h1>
+<div class="largeBox">
 
-{{ legsNew.leg }}
+  <div class="newLeg">
 
-<div class="row">
-  <div class="col-md-6">
-    <form ng-submit="legsNew.create()">
+    <div class="boxLeg2">
+      <div class="boxLeg">
+        <h1>New Leg</h1>
+        <form ng-submit="legsNew.create()">
+          <div class="dateBox">
+            <label for="start_date">Departure date</label>
+            <input value="" type="date" id="start_date" name="start_date" ng-model="legsNew.leg.start_date">
+            <button ng-click="legsNew.getFlights()">Search</button>
+          </div>
 
-
-
-<!-- NEW TRIP -->
-
-      <div>
-        <label for="start_date">Departure date</label>
-        <input value="" type="date" id="start_date" name="start_date" ng-model="legsNew.leg.start_date">
+<span class="legButton"><button>Add Leg</button> or <button ng-click="legsNew.goHome()">Go Home</button></span>
+          <div>
+            <label  class="legColumn" ng-repeat="flight in legsNew.flights" >
+              {{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}}
+              <input type="radio" name="flights" ng-model="legsNew.selectedFlight" ng-value="flight"><br>
+            </label>
+          </div>
+        </form>
       </div>
-      <button ng-click="legsNew.getFlights()">Search</button>
-<br>
-<!--
-<h5>Search flights</h5>
-<input type="text" class="search" ng-model="legsNew.q" placeholder="Search..."> -->
-
-<!-- <h5>Price</h5>
-<select ng-model="legsNew.sort">
-  <option value="+price">Price ascending</option>
-  <option value="-price">Price descending</option>
-</select> -->
-
-      <div>
-        <label>2nd Airport:</label>
-        <label ng-repeat="flight in legsNew.flights ">
-          {{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}} {{ flight.code }}
-          <input type="radio" name="flights" ng-model="legsNew.selectedFlight" ng-value="flight"><br>
-        </label>
-      </div>
-      <!-- <div>
-        <label>New Airport: </label>
-        <select ng-model="legsNew.leg.airport_id">
-          <option ng-repeat="airport in legsNew.airports" name="airport_id" value="{{airport.id}}">{{airport.name}}</option>
-        </select>
-      </div> -->
-
-
-      <button>Create</button>
-    </form>
-
-    <br>
-    <button ng-click="legsNew.goHome()">Go Home</button>
+    </div>
   </div>
 </div>

@@ -1,34 +1,80 @@
-<h1>Show page</h1>
+<!-- ===============ASIDE============== -->
 
-<world-map trip="tripsShow.trip" ng-if="tripsShow.trip.$resolved"></world-map>
+<div class="menu" ng-click="index.menuIsOpen = !index.menuIsOpen" ng-class=" { 'open': index.menuIsOpen }">
+  <div class="burger">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
 
+<aside class="legsAside" ng-class="{ 'open': index.menuIsOpen }">
 
+<h1>{{ tripsShow.trip.name }}</h1>
+
+<div class="tripInfo">
+  <!-- <h2>Trip Name: {{ tripsShow.trip.name }}</h2> -->
+  <h3>{{ tripsShow.trip.description }}</h3>
+
+  <h3>StartDate: {{ tripsShow.trip.start_date | date: 'longDate' }}</h3>
+
+  <h3>Leaving from {{ tripsShow.trip.airport.name }}</h3>
+  <img class="profileSml" ng-src="{{ tripsShow.trip.user.image_src }}" alt="{{ tripsShow.trip.user.username }}">
+  <span>Created by: <strong>{{ tripsShow.trip.user.username }}</strong></span>
+</div>
+
+<div>
+  <p>Like this trip?  Click to attend:
+    <button class="tripbuttons" ng-click="tripsShow.toggleAttending()" ng-if="!tripsShow.isAttending() && main.isAuthenticated()">Attend</button>
+    <button class="tripbuttons" ng-click="tripsShow.toggleAttending()" ng-if="tripsShow.isAttending() && main.isAuthenticated()">Reject</button>
+  </p>
+  <br>
+  <button class="tripbuttons" ui-sref="tripsEdit({id: tripsShow.trip.id})" ng-if="main.isAuthenticated() && main.currentUser.id === tripsShow.trip.user.id">Edit</button>
+  <button class="tripbuttons" ng-click="tripsShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === tripsShow.trip.user.id">Delete</button>
+</div>
+
+</aside>
+
+<!-- =================MAP AND TITLE================ -->
+
+<h1>{{ tripsShow.trip.name }}</h1>
+
+<h4 class="legTag"><a ui-sref="legsNew({id: tripsShow.trip.id})" ng-if="main.isAuthenticated() && main.currentUser.id === tripsShow.trip.user.id">New Leg or Go Home?</a></h4>
+<h4 class="legTag"><a href="#comments" ng-if="main.isAuthenticated()">Comments</a></h4>
+
+<div class="map">
+  <world-map trip="tripsShow.trip" ng-if="tripsShow.trip.$resolved"></world-map>
+</div>
 
 <div class="row">
   <div class="col-md-6">
     <div class="trip">
-      <img ng-src="{{ tripsShow.trip.image_src }}" alt="{{ tripsShow.trip.name }}">
-      <h2>Trip Name: {{ tripsShow.trip.name }}</h2>
-      <img ng-src="{{ tripsShow.trip.user.image_src }}" alt="{{ tripsShow.trip.user.username }}">
-      <p>Created by: <strong>{{ tripsShow.trip.user.username }}</strong></p>
 
-      {{ tripsShow.trip.user_id }}
+  <!-- ================BASIC INFO====================== -->
+      <!-- <div class="tripInfo">
+        <h2>Trip Name: {{ tripsShow.trip.name }}</h2>
+        <h3>Trip description: {{ tripsShow.trip.description }}</h3>
+
+        <h4>StartDate: {{ tripsShow.trip.start_date | date: 'longDate' }}</h4>
+
+        <h3>Leaving from {{ tripsShow.trip.airport.name }}</h3>
+        <img ng-src="{{ tripsShow.trip.airport.image }}" style="height: 200px">
+        <img class="profileSml" ng-src="{{ tripsShow.trip.user.image_src }}" alt="{{ tripsShow.trip.user.username }}">
+        <span>Created by: <strong>{{ tripsShow.trip.user.username }}</strong></span>
+      </div> -->
 
   <!-- ====================BUTTONS: attending, edit, delete========================== -->
-      <div>
-        <button ng-click="tripsShow.toggleAttending()" ng-if="!tripsShow.isAttending() && main.isAuthenticated()">Attend</button>
-        <button ng-click="tripsShow.toggleAttending()" ng-if="tripsShow.isAttending() && main.isAuthenticated()">Reject</button>
+      <!-- <div>
+        <p>Like this trip?  Click to attend:
+          <button class="tripbuttons" ng-click="tripsShow.toggleAttending()" ng-if="!tripsShow.isAttending() && main.isAuthenticated()">Attend</button>
+          <button class="tripbuttons" ng-click="tripsShow.toggleAttending()" ng-if="tripsShow.isAttending() && main.isAuthenticated()">Reject</button>
+        </p>
+        <br>
 
-        <button ui-sref="tripsEdit({id: tripsShow.trip.id})" ng-if="main.isAuthenticated() && main.currentUser.id === tripsShow.trip.user.id">Edit</button>
-        <button ng-click="tripsShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === tripsShow.trip.user.id">Delete</button>
-      </div>
-  <!-- ================BASIC INFO====================== -->
-      <h3>Trip description: {{ tripsShow.trip.description }}</h3>
-
-      <h4>StartDate: {{ tripsShow.trip.start_date | date: 'longDate' }}</h4>
-
-      <h3>HomeAirport: {{ tripsShow.trip.airport.name }}</h3>
-      <img ng-src="{{ tripsShow.trip.airport.image }}" style="height: 200px">
+        <button class="tripbuttons" ui-sref="tripsEdit({id: tripsShow.trip.id})" ng-if="main.isAuthenticated() && main.currentUser.id === tripsShow.trip.user.id">Edit</button>
+        <button class="tripbuttons" ng-click="tripsShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === tripsShow.trip.user.id">Delete</button>
+      </div> -->
 
   <!-- =======================LEGS========================== -->
 
@@ -49,7 +95,7 @@
 
   <!-- ======================ADDING LEGS============================= -->
 
-      <h4><a ui-sref="legsNew({id: tripsShow.trip.id})" ng-if="main.isAuthenticated() && main.currentUser.id === tripsShow.trip.user.id">New Leg or Go Home?</a></h4>
+      <!-- <h4><a ui-sref="legsNew({id: tripsShow.trip.id})" ng-if="main.isAuthenticated() && main.currentUser.id === tripsShow.trip.user.id">New Leg or Go Home?</a></h4> -->
 
   </div>
 </div>
@@ -67,31 +113,25 @@
 </div>
 
 <!-- ======================COMMENTS============================= -->
+<section id="comments">
+  <div class="comments">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Comments</h2>
+        <ul>
+          <li ng-repeat="comment in tripsShow.trip.comments">{{ comment.body }} - <strong>{{ comment.user.username }}</strong><button ng-click="tripsShow.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUser.id === comment.user.id">Delete</button></li>
+        </ul>
+      </div>
 
-<div class="comments">
-  <div class="row">
-    <div class="col-md-6">
-      <h2>Comments</h2>
-      <ul>
-        <li ng-repeat="comment in tripsShow.trip.comments">{{ comment.body }} - <strong>{{ comment.user.username }}</strong><button ng-click="tripsShow.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUser.id === comment.user.id">Delete</button></li>
-      </ul>
-    </div>
 
-
-    <div class="col-md-6" ng-if="main.isAuthenticated()">
-      <h2>Add Comment</h2>
-      <form ng-submit="tripsShow.addComment()">
-        <textarea type="text" name="body" ng-model="tripsShow.comment.body"></textarea>
-        <button>Create</button>
-      </form>
+      <div class="col-md-6" ng-if="main.isAuthenticated()">
+        <h2>Add Comment</h2>
+        <form ng-submit="tripsShow.addComment()">
+          <textarea type="text" name="body" ng-model="tripsShow.comment.body"></textarea>
+          <button>Create</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
-
-{{ tripsShow.trip }}
-
-<br>
-<br>
-<h2>what</h2>
-
-<!-- {{ tripsShow.trip.user }} -->
+</section>
+<!-- {{ tripsShow.trip }} -->

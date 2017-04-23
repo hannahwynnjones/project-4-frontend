@@ -7,6 +7,13 @@ main {
   margin: 150px, 200px, 0, 200px;
 }
 
+.centered-styles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 //////////////STATIC - HOME ///////////////////
 
 .homeImage {
@@ -79,6 +86,106 @@ main {
 
 ///////////////TRIPS SHOW////////////////////
 
+//////////////////////////////Aside Bar/////////////////////////////////////
+
+.menu {
+  cursor: pointer;
+  position: fixed;
+  z-index: 301;
+  top:100px;
+  left: 20px;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  border-radius: 50%;
+  .burger {
+    width: 20px;
+    height:15px;
+    @extend .centered-styles;
+    span {
+      background: black;
+      display: block;
+      position: absolute;
+      height: 3px;
+      width:100%;
+      border-radius: 3px;
+      opacity: 1;
+      left:0;
+      transform: rotate(0deg);
+      transition: all 0.5s ease-in-out;
+      &:nth-child(1) {
+        top: 6px;
+        // left: -25px;
+        // transform: translateX(38px) translateY(4px) rotate(45deg);
+        width: 50%;
+      }
+      &:nth-child(2),
+      &:nth-child(3) {
+        top: 6px;
+      }
+      &:nth-child(4) {
+        top: 13px;
+        // left: -25px;
+        // transform: translateX(38px) translateY(-4px) rotate(-45deg);
+        width: 50%;
+      }
+    }
+  }
+  &.open {
+    .burger{
+      span {
+
+        &:nth-child(1),
+        &:nth-child(4){
+          top:6px;
+          width:0%;
+        }
+        &:nth-child(2){
+          transform: rotate(45deg);
+        }
+        &:nth-child(3){
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+///////////////////Text for aside bar////////////////////////////////
+.legsAside {
+  background:rgba(300,300,300,0.9) ;
+  width: 300px;
+  height:100%;
+  position: fixed;
+  top:100px;
+  left:-30%;
+  transition: 1s ease;
+  left: -30%;
+  padding-top: 40px;
+  padding-left: 20px;
+  z-index: 300;
+  text-align: left;
+  &.open{
+    transition: 1s ease;
+    left: 0;
+  }
+  h5{
+    margin-left: 10px;
+    font-family: 'Playfair Display', serif;
+  }
+  input, select{
+    width: 175px;
+    display: block;
+    margin-top: 10px;
+    margin-left: 5px;
+  }
+
+}
+
+.tripbuttons {
+  margin: 5px;
+}
+
   ////////////MAPS//////////////////////
 
 // #map-canvas {
@@ -89,27 +196,62 @@ main {
 //   background-color: lightgrey;
 // }
 
-.world-map {
-  background-size: cover;
-  background-position: center;
-  max-width: 1024px;
-  height: 100vh;
-}
+.map {
+  text-align: center;
+  margin: 0 auto;
+  .world-map {
+    background-size: cover;
+    background-position: center;
+    max-width: 1024px;
+    height: 100vh;
+    margin: 0 auto;
 
-// Map - may need to remove later
-// #map {
-//   height: calc(100vh - 50px);
-// }
+  }
+}
 
 .infowindow {
   font-family: arial, monospace;
   color: lightgrey;
 }
 
+.legTag {
+  text-align: right;
+  padding-right: 250px;
+}
 
 ////////////////NEW TRIP////////////////////////////////
 
+.newTrip {
+  margin-top:50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  h1 {
+    padding-bottom: 50px;
 
+  }
+  .box2 {
+    border-style: solid;
+    border-radius: 5px;
+    padding: 10px;
+    border-color: lightgrey;
+
+    .box {
+      text-align: left;
+      border-style: solid;
+      border-radius: 5px;
+      padding: 15px;
+      border-color: darkgrey;
+      .createButton {
+        text-align: center;
+        margin: 20px;
+      }
+    }
+  }
+
+}
 
 
 ////////////////EDIT TRIP////////////////////////////////
@@ -118,9 +260,50 @@ main {
 
 
 ////////////////NEW LEGS////////////////////////////////
+.largeBox {
+  height: 2000px;
 
+  .newLeg {
+    margin-top:50px;
+    position: absolute;
+    top: 20%;
+    left: 22%;
+    // transform: translate(-50%, -50%);
+    width: 800px;
+    h1 {
+      padding-bottom: 50px;
 
+    }
+    .boxLeg2 {
+      border-style: solid;
+      border-radius: 5px;
+      padding: 10px;
+      border-color: lightgrey;
 
+      .boxLeg {
+        text-align: left;
+        border-style: solid;
+        border-radius: 5px;
+        padding: 15px;
+        border-color: darkgrey;
+        .dateBox {
+          margin: -20px 0 30px;
+        }
+        .legButton {
+          //  margin: 150px;
+        }
+        .legColumn {
+          padding: 10px;
+          -webkit-column-width: 200px;
+             -moz-column-width: 200px;
+                  column-width: 200px;
+        }
+      }
+    }
+
+  }
+
+}
 
 ////////////////EDIT LEGS////////////////////////////////
 
@@ -140,6 +323,34 @@ main {
 
 /////////////////REGESTER PAGE/////////////////////////
 
+.auth {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  h1 {
+    padding-bottom: 50px;
 
+  }
+  .box2 {
+    border-style: solid;
+    border-radius: 5px;
+    padding: 10px;
+    border-color: lightgrey;
+
+    .box {
+      text-align: left;
+      border-style: solid;
+      border-radius: 5px;
+      padding: 8px;
+      border-color: darkgrey;
+      .authButton {
+        text-align: center;
+        margin: 20px;
+      }
+    }
+  }
+
+}
 
 //////////////////LOGIN PAGE///////////////////////////

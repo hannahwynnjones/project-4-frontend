@@ -1,0 +1,16 @@
+<h1>Profiles Index</h1>
+
+
+<h1>All Profiles</h1>
+<div class="row usersIndex">
+  <ul>
+    <li ng-repeat="user in profilesIndex.all" class="col-md-4 ">
+      <div class="user">
+        <img ng-src="{{ user.image_src }}" alt="{{ user.username }}">
+        <a ui-sref="usersShow({id: user.id})">{{ user.username }}</a>
+        <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+        <span>Created by: <strong>{{ user.username }}</strong></span>
+      </div>
+    </li>
+  </ul>
+</div>
