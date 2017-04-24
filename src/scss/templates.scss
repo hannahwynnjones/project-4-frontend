@@ -56,10 +56,12 @@ header {
   height: 60px;
   width: 100%;
   margin: 0;
-  background-color: rgba(20, 20, 20, 0);
+  background-color: rgba(0,0,0,0.2);
   transition: background-color 0.2s ease;
+  color: red;
+
   &.opaque {
-    background-color: rgba(20, 20, 20, 0.6);
+    background-color: rgba(85, 20, 20, 0.6);
   }
 nav {
   ul {
@@ -74,6 +76,8 @@ nav {
         line-height: 50px;
         float: right;
         padding-left: 15px;
+        color: red;
+
         &.logo {
           float: left;
           padding: 0;
@@ -96,7 +100,7 @@ nav {
           text-decoration: none;
           display: inline;
           font-size: 30px;
-          color: white;
+          color: red;
           font-weight: bold;
           display: block;
           position: relative;
@@ -109,7 +113,7 @@ nav {
 }
 .nav-extension {
   width: 100%;
-  background-color: rgba(300,300,300,0.9);
+  background-color: rgba(0,0,0,0.5);
   position: fixed;
   top: 47px;
   left: 0;

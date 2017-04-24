@@ -1,26 +1,39 @@
-<div class="form2 form-style-8">
+<div class="newTrip">
 
-<h2>Edit User</h2>
-<form name="editProfile.editProfileForm" ng-submit="editProfile.update()" novalidate>
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" username="username" id="username" ng-model="editProfile.user.username" class="form-control">
-  </div>
+  <div class="box2">
+    <div class="box">
 
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email" ng-model="editProfile.user.email" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="location">Location</label>
-    <input type="text" name="location" id="location" ng-model="editProfile.user.location" class="form-control">
-  </div>
+      <h2>Edit User</h2>
+      <form name="editProfile.editProfileForm" ng-submit="editProfile.update()" novalidate>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" username="username" id="username" ng-model="editProfile.user.username" class="form-control">
+        </div>
 
-  <div class="form-group">
-    <label for="base64">Image</label>
-    <input type="file" base64 name="base64" id="base64" ng-model="editProfile.user.base64">
-  </div>
+        <div class="form-group">
+          <label for="second_name">First Name</label>
+          <input type="text" first_name="first_name" id="first_name" ng-model="editProfile.user.first_name" class="form-control">
+        </div>
 
-  <button class="btn btn-primary">Update</button>
-</form>
+        <div class="form-group">
+          <label for="second_name">First Name</label>
+          <input type="text" second_name="second_name" id="second_name" ng-model="editProfile.user.second_name" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" name="email" id="email" ng-model="editProfile.user.email" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="base64">Image</label>
+          <input type="file" base64 name="base64" id="base64" ng-model="editProfile.user.base64">
+        </div>
+
+        <div class="createButton">
+          <button >Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

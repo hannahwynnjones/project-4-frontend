@@ -10,7 +10,7 @@
   </div>
 
   <ul class="row">
-    <li ng-repeat="trip_attending in profile.all" class="col-md-6">
+    <li ng-repeat="trip in profile.all" class="col-md-6">
       <div class="">
         <p>Image below</p>
         <img ng-src="{{ trip.image_src }}" alt="{{ trip.name }}">
@@ -28,5 +28,5 @@
   <br>
   <br>
 
-    <button class ="" ng-if="main.profilePageId === profile.user.id" ui-sref="editProfile({id: main.profilePageId})">Edit profile</button>
-    <button class ="" ng-if="main.profilePageId === profile.user.id" ng-click="profile.delete()">Delete Profile</button>
+    <button class ="" ng-if="main.currentUser.id === profile.user.id" ui-sref="editProfile({id: main.currentUser.id})">Edit profile</button>
+    <button class ="" ng-if="main.currentUser.id === profile.user.id" ng-click="profile.delete()">Delete Profile</button>

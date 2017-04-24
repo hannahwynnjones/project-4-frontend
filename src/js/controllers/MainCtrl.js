@@ -26,7 +26,6 @@ function MainCtrl($rootScope, $state, $auth) {
     if($auth.getPayload()) vm.profilePageId = $auth.getPayload().userId;
     vm.navIsOpen = false;
 
-
   });
 
   const protectedStates = ['tripsNew', 'tripsEdit'];

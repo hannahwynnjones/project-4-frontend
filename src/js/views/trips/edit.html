@@ -1,11 +1,11 @@
-<h1>Edit page</h1>
+<div class="newTrip">
 
-<div class="row">
-  <div class="col-md-6">
+<div class="box2">
+  <div class="box">
+
+    <h1>Edit Your Trip</h1>
+
     <form ng-submit="tripsEdit.update()">
-
-<!-- SLIDE 1 -->
-
       <div>
         <label for="name">Name</label>
         <input type="text" id="name" name="name" ng-model="tripsEdit.trip.name">
@@ -17,30 +17,23 @@
       </div>
 
       <div>
-        <label for="date">Departure date</label>
-        <input type="date" id="date1" name="date_one" ng-model="tripsEdit.trip.date_one">
-      </div>
-
-      <div>
         <label for="base64">Image</label>
         <input type="file" base64 name="base64" id="base64" ng-model="tripsEdit.trip.base64">
       </div>
 
+<!-- ATTENDEES -->
       <div>
-        <label for="airport">Home Airport</label>
-
-        <select ng-model="tripsEdit.trip.airport">
-          <option ng-repeat="airport in tripsEdit.airports" name="airport_id" value="{{airport.id}}">{{airport.name}}</option>
-        </select>
-
-      </div>
-
-      <div>
-        <label ng-repeat="user in tripsEdit.users">
-        <input type="checkbox" name="attendees" checklist-model="tripsEdit.trip.attendee_ids" checklist-value="user.id">{{ user.username }}
-        </label>
-      </div>
-      <button>Update</button>
-    </form>
+        <div class="">
+          <label>Invite some friends:</label>
+        </div>
+          <label ng-repeat="user in tripsEdit.users">
+          <input type="checkbox" name="attendees" checklist-model="tripsEdit.trip.attendee_ids" checklist-value="user.id">{{ user.username }}
+          </label>
+        </div>
+        <div class="createButton">
+          <button >Update</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

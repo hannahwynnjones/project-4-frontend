@@ -59,7 +59,8 @@ function EditCtrl(User, $state, $stateParams){
     vm.user
     .$update()
     .then(()=> {
-      $state.go('profile', $stateParams);
+      $state.go('profile', { id: vm.currentUser.id });
+      // $state.go('profile', $stateParams);
     });
   }
   vm.update= updateUser;
