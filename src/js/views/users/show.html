@@ -9,27 +9,28 @@
     <h1>{{ profile.user.first_name }} {{ profile.user.second_name }}</h1>
     <h3>{{ profile.user.username }}</h3>
     <p>Email: {{ profile.user.email }}</p>
+    <button class ="" ng-if="main.currentUser.id === profile.user.id" ui-sref="editProfile({id: main.currentUser.id})">Edit profile</button>
+    <button class ="" ng-if="main.currentUser.id === profile.user.id" ng-click="profile.delete()">Delete Profile</button>
+
   </div>
 </div>
 
+<div class="line"></div>
+
+<div class="userssTrips">
+
+<h1>Trips your are interested in:</h1>
+
   <ul class="row">
-    <li ng-repeat="trip in profile.user.trips_created" class="col-md-6">
-      <div class="">
-        <p>Image below</p>
-        <img ng-src="{{ trip.image_src }}" alt="{{ trip.name }}">
-        <p>image above</p>
-        <h2>{{ trip.name }}</h2>
-        <h3>{{ trip.description }}</h3>
-        <p>Created by: <strong>{{ trip.user.username }}</strong></p>
-        <img ng-src="{{ trip.user.imageSRC }}" alt="{{trip.user.username}}">
-        <button ui-sref="tripsShow({id: trip.id})">View</button>
-      </div>
+    <li ng-repeat="trip in profile.user.trips_created" class="col-md-4">
+      <a  ui-sref="tripsShow({id: trip.id})">
+        <div class="overlayTwo">
+          <div style="background-image: url('{{ trip.image_src }}'); background-size: cover; z-index: 0;" class="box trip overlay">
+            <img ng-src="{{ trip.user.image_src }}" alt="{{trip.user.username}}">
+            <h2>{{ trip.name }}</h2>
+          </div>
+        </div>
+      </a>
     </li>
   </ul>
-
-
-  <br>
-  <br>
-
-    <button class ="" ng-if="main.currentUser.id === profile.user.id" ui-sref="editProfile({id: main.currentUser.id})">Edit profile</button>
-    <button class ="" ng-if="main.currentUser.id === profile.user.id" ng-click="profile.delete()">Delete Profile</button>
+</div>
