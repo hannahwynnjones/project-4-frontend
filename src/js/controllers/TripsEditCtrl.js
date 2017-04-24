@@ -22,9 +22,11 @@ function TripsEditCtrl(Trip, User, $stateParams, $state, Airport) {
     Trip
       .update({id: vm.trip.id, trip: vm.trip })
       .$promise
-      .then(() => $state.go('tripsShow', { id: vm.trip.id }));
+      .then((response) => {
+        console.log('update response', response);
+        $state.go('tripsShow', { id: vm.trip.id });
+      });
       // .then(() => $state.go('tripsShow', $stateParams));
-
   }
 
   vm.update = tripsUpdate;

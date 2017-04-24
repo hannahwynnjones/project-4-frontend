@@ -57,26 +57,6 @@ function LegsNewCtrl(Leg, Trip, User, $state, $stateParams, Airport, skyscanner)
         // removeDuplicates();
       });
 
-    // function removeDuplicates(quotes, MinPrice) {
-    //
-    //   console.log('working2', length)
-    //   var trimmedArray = [];
-    //   var values = [];
-    //   var value;
-    //
-    //   for(var i = 0; i < length; i++) {
-    //     value = quotes[i][MinPrice];
-    //
-    //     if(values.indexOf(value) === -1) {
-    //       trimmedArray.push(quotes[i]);
-    //       values.push(value);
-    //     }
-    //     console.log(trimmedArray);
-    //   }
-    //
-    //   return trimmedArray;
-    //
-    // }
   }
 
   vm.getFlights = getFlights;
@@ -105,7 +85,7 @@ function LegsNewCtrl(Leg, Trip, User, $state, $stateParams, Airport, skyscanner)
     Leg
       .save({ leg: vm.leg })
       .$promise
-      .then(() => $state.go('tripsIndex'));
+      .then(() => $state.go('tripsShow', { id: vm.trip.id }));
   }
 
   vm.create = legsCreate;

@@ -56,12 +56,28 @@ function worldMap($window) {
           position: {lat: leg.airport.lat, lng: leg.airport.lng}
         });
 
+        // var country = leg.airport.name;
+        // var image = leg.airport.image;
+        // var airline = leg.airline;
+        // var price = leg.price;
+        // var date = leg.start_date;
+
+        const airport = leg.airport.name;
+        const image = leg.airport.image;
+        const airline = leg.airline;
+        const date = leg.start_date;
+        const price = leg.price;
+
+
+
         //  legs.forEach((marker) => {
         // google.maps.event.addListener(marker, 'click', function() {
         //   marker.info.open(map, this);
         // });
 
-        var infowindow = new google.maps.InfoWindow({ content: '<p>Lots of Content</p>' });
+        var infowindow = new google.maps.InfoWindow({ content:
+          '<div><img style="height: 100px;" src="'+image+'"</div><div class="infowindow"><h3>'+airport+'</h3><p>Airline: <strong>'+airline+'</strong>, total: £'+price+'<p>Leaving on the: <strong>'+date+'</strong></p> </div>'
+        });
 
         marker.addListener('click', function() {
           console.log('click function working');

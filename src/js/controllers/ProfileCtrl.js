@@ -23,7 +23,7 @@ function ProfileCtrl(User, $stateParams, $http, $state, $auth, Trip){
     .$promise
     .then((trips)=>{
       trips.forEach((trip)=>{
-        if(trip.createdBy.id === vm.user.id){
+        if(trip.user.id === vm.user.id){
           vm.allUserTrips.push(trip);
         }
       });
@@ -40,7 +40,7 @@ function ProfileCtrl(User, $stateParams, $http, $state, $auth, Trip){
     $auth.logout();
     vm.user
       .$remove()
-      .then(() => $state.go('tripsIndex'));
+      .then(() => $state.go('home'));
   }
   vm.delete = profileDelete;
 }
@@ -52,16 +52,22 @@ EditCtrl.$inject = ['User', '$state', '$stateParams'];
 function EditCtrl(User, $state, $stateParams){
   //gets the user from the profile passed in
   const vm = this;
-
+  console.log(vm.currentUser, 'workkkkkkkk!!!!!!!!!');
   vm.user = User.get($stateParams);
 //updates the user
   function updateUser(){
-    vm.user
-    .$update()
-    .then(()=> {
-      $state.go('profile', { id: vm.currentUser.id });
-      // $state.go('profile', $stateParams);
-    });
+    console.log(vm.user, 'vm.user');
+    console.log(vm.user.id, 'vm.user.id');
+    // vm.user
+    User
+      .update({id: vm.user.id, user: vm.user })
+      .$promise
+      .then(()=> {
+        console.log(vm.user.id, 'vm.user.id2');
+
+        $state.go('profile', { id: vm.user.id });
+        // $state.go('profile', $stateParams);
+      });
   }
   vm.update= updateUser;
 

@@ -31,7 +31,7 @@
           <option ng-repeat="airport in tripsNew.airports | filter:{country:'uk'}" name="airport_id" value="{{airport.id}}" required >{{airport.name}}</option>
         </select>
 
-        <div class="ng-message-error" ng-messages="tripsNew.tripForm.airport_id.$error" role="alert" ng-show="(tripsNew.tripForm.$submitted || tripsNew.tripForm.airport_id.$touched)"> <div ng-messag="required">Airport is required</div>
+        <div style="color:red;" class="ng-message-error" ng-messages="tripsNew.tripForm.airport_id.$error" role="alert" ng-show="(tripsNew.tripForm.$submitted || tripsNew.tripForm.airport_id.$touched)"> <div ng-messag="required">Airport is required</div>
         </div>
       </div>
 

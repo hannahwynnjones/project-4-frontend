@@ -3,6 +3,7 @@
 
   <ul>
     <li ng-repeat="user in profilesIndex.all" class="col-md-4 ">
+
       <div class="user">
         <h3>{{ user.username }}</h3>
         <a ui-sref="profile({id: user.id})"><img ng-src="{{ user.image_src }}" alt="{{ user.username }}"></a>

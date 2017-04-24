@@ -1,9 +1,9 @@
 <div class="auth">
 
-  <h1>Login page</h1>
   <div class="box2">
 
       <div class="box">
+        <h1>Login page</h1>
 
       <form name="auth.loginForm" ng-submit="auth.login()" novalidate>
 
@@ -14,8 +14,8 @@
         </div>
 
         <div ng-messages="auth.loginForm.email.$error" role="alert" ng-show="(auth.loginForm.email.$touched) &&(auth.loginForm.email.$invalid)">
-          <div ng-message="required">Email is required </div>
-          <div ng-message="pattern">Please enter a valid email.</div>
+          <div style="color:red;" ng-message="required">Email is required </div>
+          <div style="color:red;" ng-message="pattern">Please enter a valid email.</div>
         </div>
 
         <div class="">
@@ -24,7 +24,7 @@
         </div>
 
         <div ng-messages="auth.loginForm.password.$error" role="alert" ng-show="(auth.loginForm.password.$touched) &&(auth.loginForm.password.$invalid)">
-          <div ng-message="required">Password is required </div>
+          <div style="color:red;" ng-message="required">Password is required </div>
         </div>
 
         <div class="authButton">

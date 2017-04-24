@@ -1,16 +1,19 @@
-<h1>USER SHOW PAGE</h1>
 
-  <div class="">
-    <h3>User Info</h3>
+<div class="profileBox">
 
-      <img ng-src="{{ profile.user.image_src }}" alt="{{profile.user.username}}">
-
-      <p>Username: {{ profile.user.username }}</p>
-      <p>Email: {{ profile.user.email }}</p>
+  <div class="left">
+    <img ng-src="{{ profile.user.image_src }}" alt="{{profile.user.username}}">
   </div>
 
+  <div class="right">
+    <h1>{{ profile.user.first_name }} {{ profile.user.second_name }}</h1>
+    <h3>{{ profile.user.username }}</h3>
+    <p>Email: {{ profile.user.email }}</p>
+  </div>
+</div>
+
   <ul class="row">
-    <li ng-repeat="trip in profile.all" class="col-md-6">
+    <li ng-repeat="trip in profile.user.trips_created" class="col-md-6">
       <div class="">
         <p>Image below</p>
         <img ng-src="{{ trip.image_src }}" alt="{{ trip.name }}">

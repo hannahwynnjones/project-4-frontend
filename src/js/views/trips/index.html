@@ -27,7 +27,7 @@
     <li ng-repeat="trip in tripsIndex.all" class="col-md-4 ">
       <div class="trip">
         <img ng-src="{{ trip.image_src }}" alt="{{ trip.name }}">
-        <a ui-sref="tripsShow({id: trip.id})">{{ trip.name }}</a>
+        <a ui-sref="tripsShow({id: trip.id})"><h1>{{ trip.name }}</h1></a>
         <h3>{{ trip.description }}</h3>
         <img class="profileSml" ng-src="{{ trip.user.image_src }}" alt="{{trip.user.username}}">
         <span>Created by: <strong>{{ trip.user.username }}</strong></span>
