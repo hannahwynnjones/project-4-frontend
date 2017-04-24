@@ -19,9 +19,10 @@
     <header>
       <nav class="navbar navbar-light bg-faded">
         <ul class="container">
-          <li class="logo"><h1 class="title">TripApp</h1></li>
+          <!-- <li class="logo"><h1 class="title">TripApp</h1></li> -->
           <li class="menu-icon" ng-click="navIsOpen = !navIsOpen">&#9776;</li>
           <div class="dropdown" ng-class="{ 'open': navIsOpen }">
+            <li ng-if="!main.isAuthenticated()"><a ui-sref="#">TripApp</a></li>
             <li ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></li>
             <li ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></li>
             <li ng-if="main.isAuthenticated()"><a ui-sref="profile({id: main.profilePageId})">My Profile</a></li>

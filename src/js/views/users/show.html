@@ -3,15 +3,14 @@
   <div class="">
     <h3>User Info</h3>
 
-      1 <img ng-src="{{ profile.user.imageSRC }}" alt="{{profile.user.username}}">
-      2 <img ng-src="{{ profile.user.image }}" alt="{{profile.user.username}}">
+      <img ng-src="{{ profile.user.image_src }}" alt="{{profile.user.username}}">
 
       <p>Username: {{ profile.user.username }}</p>
       <p>Email: {{ profile.user.email }}</p>
   </div>
 
   <ul class="row">
-    <li ng-repeat="trip in profileCtrl.all" class="col-md-6">
+    <li ng-repeat="trip_attending in profile.all" class="col-md-6">
       <div class="">
         <p>Image below</p>
         <img ng-src="{{ trip.image_src }}" alt="{{ trip.name }}">

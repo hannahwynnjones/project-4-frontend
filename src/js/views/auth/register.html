@@ -18,9 +18,20 @@
           <label for="email">Email</label>
           <input type="text" name="email" id="email" ng-model="auth.user.email" ng-pattern="/@/" required>
         </div>
+
         <div ng-show="auth.registerForm.email.$touched &&(auth.registerForm.email.$invalid)" ng-messages="auth.registerForm.email.$error" role="alert">
           <div ng-message="required"> Email is required </div>
           <div ng-message="pattern">Please enter a valid email.</div>
+        </div>
+
+        <div>
+          <label for="first_name">First Name</label>
+          <input type="text" name="first_name" ng-model="auth.user.first_name" id="first_name">
+        </div>
+
+        <div>
+          <label for="second_name">Second Name</label>
+          <input type="text" name="second_name" ng-model="auth.user.second_name" id="second_name">
         </div>
 
         <div>

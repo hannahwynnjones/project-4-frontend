@@ -51,7 +51,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'js/views/auth/register.html',
       controller: 'AuthCtrl as auth'
     })
-    .state('profileIndex', {
+    .state('profilesIndex', {
       url: '/users',
       templateUrl: 'js/views/users/index.html',
       controller: 'ProfilesIndexCtrl as profilesIndex'

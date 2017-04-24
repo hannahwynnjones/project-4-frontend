@@ -3,7 +3,7 @@
 @import 'responsive';
 
 main {
-  margin-top: 150px;
+  // margin-top: 50px;
   margin: 150px, 200px, 0, 200px;
 }
 
@@ -311,7 +311,19 @@ main {
 
 ///////////////PROFILES INDEX////////////////////////////
 
+.profilesIndex {
+  h1 {
+    margin-bottom: 50px;
+  }
+  .user {
+    border-style: solid;
+    width: 300px;
+    img {
+      width: 200px;
+    }
+  }
 
+}
 
 ////////////////PROFILE PAGE////////////////////////////
 
@@ -347,6 +359,9 @@ main {
       .authButton {
         text-align: center;
         margin: 20px;
+      }
+      label {
+        margin-right: 5px;
       }
     }
   }

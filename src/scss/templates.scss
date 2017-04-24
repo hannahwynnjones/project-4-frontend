@@ -30,6 +30,10 @@ button {
   padding: 3px;
   margin: 5px;
 }
+
+a {
+  text-decoration: none;
+}
 ////////////////////////NAV-BAR/////////////////////////////
 
 body{
@@ -65,6 +69,7 @@ nav {
     padding: 0;
     // height: 60px;
       li {
+        font-family: 'Amatic SC', cursive;
         display: inline-block;
         line-height: 50px;
         float: right;
@@ -87,20 +92,15 @@ nav {
           color: orange;
         }
         a {
-          font-family: 'Playfair Display', serif;
+          font-family: 'Amatic SC', cursive;
+          text-decoration: none;
           display: inline;
-          font-size: 18px;
+          font-size: 30px;
           color: white;
           font-weight: bold;
           display: block;
           position: relative;
           z-index: 11;
-          &.active {
-            color: red;
-            opacity: 0.5;
-            text-decoration: line-through;
-            animation: none;
-          }
         }
       }
 
@@ -114,12 +114,12 @@ nav {
   top: 47px;
   left: 0;
   z-index: 10;
-  margin-bottom: 50px;
+  // margin-bottom: 50px;
   height: 70px;
   h1{
     margin-left: 100px;
     padding-left: 140px;
-    margin-top: 30px;
+    // margin-top: 30px;
   }
 }
 
