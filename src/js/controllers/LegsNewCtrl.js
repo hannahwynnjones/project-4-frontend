@@ -56,11 +56,9 @@ function LegsNewCtrl(Leg, Trip, User, $state, $stateParams, Airport, skyscanner)
         console.log(quotes.length);
         // removeDuplicates();
       });
-
   }
 
   vm.getFlights = getFlights;
-
 
   function goHome() {
     vm.lastleg = vm.trip.legs[vm.trip.legs.length -1].airport;

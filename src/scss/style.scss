@@ -91,7 +91,7 @@ main {
 .menu {
   cursor: pointer;
   position: fixed;
-  z-index: 301;
+  z-index: 401;
   top: 100px;
   left: 20px;
   height: 50px;
@@ -119,7 +119,7 @@ main {
   padding-top: 40px;
   padding-left: 20px;
   margin-top: 30px;
-  z-index: 300;
+  z-index: 3400;
   text-align: left;
   &.open{
     transition: 1s ease;
@@ -158,7 +158,7 @@ main {
     max-width: 1024px;
     height: 100vh;
     margin: 0 auto;
-    z-index: 300;
+    z-index: 200;
 
   }
 }
