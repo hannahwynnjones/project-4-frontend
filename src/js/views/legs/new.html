@@ -15,7 +15,7 @@
 <span class="legButton"><button>Add Leg</button> or <button ng-click="legsNew.goHome()">Go Home</button></span>
           <div>
             <label  class="legColumn" ng-repeat="flight in legsNew.flights" >
-              {{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}}
+              {{ flight.DestinationCity}} in {{ flight.DestinationCountry}} £{{ flight.MinPrice}} ({{ flight.code }})
               <input type="radio" name="flights" ng-model="legsNew.selectedFlight" ng-value="flight"><br>
             </label>
           </div>
