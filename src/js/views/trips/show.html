@@ -11,14 +11,14 @@
 <!-- <h1>{{ tripsShow.trip.name }}</h1> -->
 
 <div class="tripInfo">
-  <!-- <h2>Trip Name: {{ tripsShow.trip.name }}</h2> -->
+  <img class="profileSml" ng-src="{{ tripsShow.trip.user.image_src }}" alt="{{ tripsShow.trip.user.username }}">
+  <span>Created by: <strong>{{ tripsShow.trip.user.username }}</strong></span>
   <h3>{{ tripsShow.trip.description }}</h3>
 
   <h3>StartDate: {{ tripsShow.trip.start_date | date: 'longDate' }}</h3>
 
   <h3>Leaving from {{ tripsShow.trip.airport.name }}</h3>
-  <img class="profileSml" ng-src="{{ tripsShow.trip.user.image_src }}" alt="{{ tripsShow.trip.user.username }}">
-  <span>Created by: <strong>{{ tripsShow.trip.user.username }}</strong></span>
+
 </div>
 
 <div>
@@ -81,7 +81,7 @@
     <div class="">
       <h1>Attending the trip:</h1>
       <ul>
-        <li ng-repeat="attendee in tripsShow.trip.attendees">{{ attendee.username }}</li>
+        <li ng-repeat="attendee in tripsShow.trip.attendees">{{ attendee.first_name }} {{ attendee.second_name }}</li>
       </ul>
     </div>
   </div>

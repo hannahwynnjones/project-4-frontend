@@ -1,6 +1,7 @@
+<div class="tripsIndex">
 
 <div class="row">
-  <h3>Welcome back... {{ tripsIndex.currentUser.first_name }}</h3>
+  <h3>Welcome back {{ tripsIndex.currentUser.first_name }}</h3>
 </div>
 
 <div ng-if="main.isAuthenticated()" class="row">
@@ -8,7 +9,7 @@
     <div class="imgButtonText"> New Trip</div>
   </button>
 
-  <button ui-sref="profile({id: main.profilePageId})" class="imgButtonImage image-two">
+  <button ui-sref="profile({id: main.currentUser.id})" class="imgButtonImage image-two">
     <div class="imgButtonText"> My Profile</div>
   </button>
 
@@ -33,4 +34,5 @@
       </div></div></a>
     </li>
   </ul>
+</div>
 </div>
