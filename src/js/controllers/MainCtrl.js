@@ -9,8 +9,6 @@ function MainCtrl($rootScope, $state, $auth) {
 
   vm.isAuthenticated = $auth.isAuthenticated;
 
-  // console.log('workigggg', vm.currentUser);
-
   $rootScope.$on('error', (e, err) => {
     vm.stateHasChanged = false;
     vm.message = err.data.message;
