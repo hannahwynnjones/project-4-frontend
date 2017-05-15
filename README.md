@@ -51,7 +51,7 @@ $ heroku config:add NPM_CONFIG_PRODUCTION=false
 In the front-end, I added config variables:
 
 ```sh
-$ heroku config:add API_URL=https://fierce-springs-47268.herokuapp.com````
+$ heroku config:add API_URL=https://fierce-springs-47268.herokuapp.com```
 
 And then I ran:
 `$ heroku run rails db:migrate db:seed`
