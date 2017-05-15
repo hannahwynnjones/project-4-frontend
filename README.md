@@ -9,7 +9,7 @@ Full app can be seen here at https://sleepy-tor-76650.herokuapp.com/
 
 Github repository for the backend API can be viewed [here](https://github.com/hannahwynnjones/project-4-api-backend)
 
-**[Gallery](#Gallery)**  
+**[Gallery](#gallery)**  
 
 
 #### Approach/ how it works
