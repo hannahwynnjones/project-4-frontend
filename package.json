@@ -18,6 +18,7 @@
       "fonts": "src/fonts/",
       "images": "src/images/"
     },
+
     "dest": {
       "js": "public/js/",
       "css": "public/css/",
@@ -49,6 +50,9 @@
       "images": "**/*.{png,jpg,jpeg,gif,ico}",
       "fonts": "**/*.{eot,svg,ttf,woff,woff2}"
     }
+  },
+  "engines": {
+    "node": "7.4.0"
   },
   "dependencies": {
     "express": "^4.14.0"
