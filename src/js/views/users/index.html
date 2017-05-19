@@ -1,14 +1,19 @@
 <div class="row profilesIndex">
   <h1>User Profiles</h1>
 
-  <ul>
-    <li ng-repeat="user in profilesIndex.all" class="col-md-4 ">
+  <div class="user-box-one">
 
-      <div class="user">
-        <h3>{{ user.username }}</h3>
-        <a ui-sref="profile({id: user.id})"><img ng-src="{{ user.image_src }}" alt="{{ user.username }}"></a>
-        <h3>{{ user.first_name }} {{ user.last_name }}</h3>
-      </div>
-    </li>
-  </ul>
+
+    <ul class="row">
+      <li ng-repeat="user in profilesIndex.all" class="col-md-6 col-lg-4 user-box">
+        <div class="user">
+          <h3>{{ user.username }}</h3>
+          <div class="user-img">
+            <a ui-sref="profile({id: user.id})"><img ng-src="{{ user.image_src }}" alt="{{ user.username }}"></a>
+          </div>
+          <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
